@@ -21,7 +21,7 @@ export const Gallery = () => {
                 {imageList.map((url) => {
                     return (
                         <div key={url} className='relative'>
-                            <img className='h-24 sm:h-96 sm:w-96 rounded-full' src={url} alt="" key={url} />
+                            <img className='h-24 sm:h-96 sm:w-96 rounded-full shadow-black shadow-md' src={url} alt="" key={url} />
                         </div>
                     )
                 })}
