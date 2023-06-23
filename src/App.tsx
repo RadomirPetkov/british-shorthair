@@ -6,6 +6,7 @@ import { Gallery } from './components/Gallery'
 import { GalleryAdmin } from './components/GalleryAdmin'
 import { About } from './components/About'
 import { Kittens } from './components/Kittens'
+import { Messanger } from './components/Messanger'
 
 function App () {
   return (
@@ -18,6 +19,7 @@ function App () {
         <Route path='/kittens' element={<Kittens />} />
         <Route path='/gallery/admin' element={<GalleryAdmin />} />
       </Routes>
+      <Messanger/>
     </>
   )
 }
