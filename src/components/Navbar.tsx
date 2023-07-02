@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom'
 import logo from '../pictures/logo-white.png'
 
 export const Navbar = () => {
-  const linkClassName = 'hover:bg-blue-300 p-3 rounded-full'
+  const linkClassName = 'hover:bg-baseBackground p-3 rounded-full'
   const navigation = true
 
   return (
-    <div className="bg-black flex-wrap">
+    <div className="bg-black flex-wrap m-0">
       <div>
         <Link to={'/'}>
           <img src={logo} alt="" className='h-16 absolute top-10 left-10 rounded-full hidden sm:block sm:h-10 md:h-16 xl:h-24 xl:top-5' />

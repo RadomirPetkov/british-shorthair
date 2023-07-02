@@ -11,7 +11,11 @@ module.exports = {
       },
       backgroundImage: {
         'front-image': "url('./pictures/background3.jpeg')"
+      },
+      backgroundColor: {
+        'baseBackground': '#808080',
       }
+      
     }
   },
   plugins: [require("daisyui")],

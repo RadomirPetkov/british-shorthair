@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { Footer } from './Footer'
 
 export const Home = () => {
     return (
@@ -24,6 +25,7 @@ export const Home = () => {
                     </Link>
                 </button>
             </section>
+            <Footer />
         </div>
     )
 }
