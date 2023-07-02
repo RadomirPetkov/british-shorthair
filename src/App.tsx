@@ -9,7 +9,8 @@ import { Kittens } from './components/Kittens'
 import { Messanger } from './components/Messanger'
 import { Studs } from './components/Studs'
 import { Queens } from './components/Queens'
-import { Feedback } from './components/Feedback'
+import { Feedback } from './components/Feedback/Feedback'
+import { LeaveAComment } from './components/Feedback/LeaveAComment'
 
 function App () {
   return (
@@ -23,6 +24,7 @@ function App () {
         <Route path='/studs' element={<Studs />} />
         <Route path='/queens' element={<Queens />} />
         <Route path='/feedback' element={<Feedback />} />
+        <Route path='/feedback/comment' element={<LeaveAComment />} />
         <Route path='/gallery/admin' element={<GalleryAdmin />} />
       </Routes>
       <Messanger/>
