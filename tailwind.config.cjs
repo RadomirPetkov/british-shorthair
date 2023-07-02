@@ -9,7 +9,7 @@ module.exports = {
         'baseBackground': '#f2f2f2'
       },
       backgroundImage: {
-        'front-image': "url('./pictures/background.jpg')"
+        'front-image': "url('./pictures/background3.jpeg')"
       }
     }
   },

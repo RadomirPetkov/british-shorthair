@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import arrowDown from '../pictures/arrowDown.png'
 import arrowUp from '../pictures/arrowup.jpeg'
 import image from '../pictures/image.jpeg'
+import logo from '../pictures/logo-white.png'
 
 export const Navbar = () => {
   const linkClassName = 'hover:bg-blue-300 p-3 rounded-full'
@@ -15,13 +16,19 @@ export const Navbar = () => {
         <img src={image} alt="" className='h-16 absolute top-10 left-10 rounded-full hidden sm:block sm:absolute md:h-24 xl:h-32 xl:top-5'/>
         </Link>
       </div>
-      <h2 className="pt-5 text-2xl font-bold">SilverGlow British Shorthair</h2>
+      <div className="circle-container">
+      <div className="circle">
+        <button id="close"><i className="fas fa-times"></i></button>
+        <button id="open"><i className="fas fa-bars"></i></button>
+      </div>
+    </div>
       <button className='' onClick={() => setNavigation(!navigation)}>
+      <img src={logo} alt="" className='w-24 h-16 m-auto pt-5'/>
         {!navigation &&
-          <img src={arrowDown} alt="" className='bg-white text-white rounded-full h-10 mt-3 transition ease-in delay-100 sm:hidden' />
+          <img src={arrowDown} alt="" className='bg-white text-white rounded-full h-10 m-auto my-3' />
         }
         {navigation &&
-          <img src={arrowUp} alt="" className='bg-white text-white rounded-full h-10 mt-3 transition ease-in delay-100 sm:hidden' />
+          <img src={arrowUp} alt="" className='bg-white text-white rounded-full h-10 m-auto my-3' />
         }
       </button>
       {navigation &&
@@ -44,6 +51,8 @@ export const Navbar = () => {
         </div>
       }
       <div>
+
+      {/* web view */}
       <div className='flex-wrap space-x-1 px-10 py-5 space-y-5 hidden sm:block sm:p-10 sm:space-x-5'>
             <Link to={'/'} className={linkClassName}>Home</Link>
             <Link to={'/gallery'} className={linkClassName}>Gallery</Link>
