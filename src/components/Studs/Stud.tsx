@@ -33,7 +33,7 @@ export const Stud = (props:Props) => {
     }
 
     return (
-        <div className="w-3/4 m-auto p-3 pt-5 bg-silver my-10 rounded-3xl h-auto space-y-5 sm:w-1/2 shadow-lg shadow-black">
+        <div className="w-3/4 m-auto p-3 pt-5 bg-stud my-10 rounded-3xl h-auto space-y-5 sm:w-1/2 shadow-lg shadow-black">
             <h3 className="">{ fullName }</h3>
             <h3 className="">Dam: { dam }</h3>
             <h3 className="">Sir: { sir }</h3>
