@@ -16,19 +16,13 @@ export const Navbar = () => {
         <img src={image} alt="" className='h-16 absolute top-10 left-10 rounded-full hidden sm:block sm:absolute md:h-24 xl:h-32 xl:top-5'/>
         </Link>
       </div>
-      <div className="circle-container">
-      <div className="circle">
-        <button id="close"><i className="fas fa-times"></i></button>
-        <button id="open"><i className="fas fa-bars"></i></button>
-      </div>
-    </div>
       <button className='' onClick={() => setNavigation(!navigation)}>
       <img src={logo} alt="" className='w-24 h-16 m-auto pt-5'/>
         {!navigation &&
-          <img src={arrowDown} alt="" className='bg-white text-white rounded-full h-10 m-auto my-3' />
+          <img src={arrowDown} alt="" className='bg-white text-white rounded-full h-10 m-auto my-3 sm:hidden' />
         }
         {navigation &&
-          <img src={arrowUp} alt="" className='bg-white text-white rounded-full h-10 m-auto my-3' />
+          <img src={arrowUp} alt="" className='bg-white text-white rounded-full h-10 m-auto my-3 sm:hidden' />
         }
       </button>
       {navigation &&
