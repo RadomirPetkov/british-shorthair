@@ -1,5 +1,10 @@
+import { Stud } from './Studs/Stud'
+
 export const Studs = () => {
     return (
-        <h1>Studs</h1>
+        <div className='h-screen'>
+            <Stud fullName='Aspen SilverGlow' firebaseUrl='Aspen' sir='GICH Viva Vogue Ultramarine ' dam='Nicomedia Candy' />
+            <Stud fullName='CH SilverGlow Ferrero Raffaello' firebaseUrl='Raffaello' sir='CH Marozka Peridot' dam='IGrCH Kamasaki Moonshadow ' />
+        </div>
     )
 }
