@@ -13,12 +13,12 @@ export const Home = () => {
             <section className="pb-10">
                 <h1 className="font-bold text-5xl py-3 pt-6"> Who we are?</h1>
                 <p className="p-10 w-5/6 m-auto">We are Ivan and Rositsa, and together, we are running SilverGlow British Shorthair cats. We started breeding BSH Silver Spotted and Classic Tabbies in England in 2014. With the time our breeding program has changed to Silver Tipped/Shaded cats and we started breeding in England and in Bulgaria. Each kitten is raised with care and diligence, and equality important, is well socialised. All our kittens and cats are indoors and live together with us at home</p>
-                <button className="bg-black p-5 rounded-full w-48 hover:bg-blue-500 font-bold  shadow-silver shadow-md border-slate-400 border-4">
+                <button className="bg-black p-5 rounded-full w-48 hover:bg-blue-500 font-bold  shadow-silver shadow-md border-slate-400 border-4 m-2">
                     <Link to={'/studs'}>
                         Our studs
                     </Link>
                 </button>
-                <button className="bg-black p-5 rounded-full w-48 hover:bg-blue-500 font-bold  shadow-silver shadow-md border-slate-400 border-4">
+                <button className="bg-black p-5 rounded-full w-48 hover:bg-blue-500 font-bold  shadow-silver shadow-md border-slate-400 border-4 m-2">
                     <Link to={'/queens'}>
                         Our queens
                     </Link>

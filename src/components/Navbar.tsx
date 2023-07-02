@@ -57,12 +57,12 @@ export const Navbar = () => {
         {/* web view */}
         <div className='flex-wrap space-x-1 px-10 py-5 space-y-5 hidden sm:block sm:p-10 sm:space-x-5'>
           <Link to={'/'} className={linkClassName}>Home</Link>
-          <Link to={'/'} className={linkClassName}>About us</Link>
-          <Link to={'/'} className={linkClassName}>Studs</Link>
-          <Link to={'/'} className={linkClassName}>Queens</Link>
+          <Link to={'/about'} className={linkClassName}>About us</Link>
+          <Link to={'/studs'} className={linkClassName}>Studs</Link>
+          <Link to={'/queens'} className={linkClassName}>Queens</Link>
           <Link to={'/kittens'} className={linkClassName}>Available kittens</Link>
-          <Link to={'/about'} className={linkClassName}>Silverglows around the world</Link>
-          <Link to={'/'} className={linkClassName}>Feedback</Link>
+          <Link to={'/around-the-world'} className={linkClassName}>Silverglows around the world</Link>
+          <Link to={'/feedback'} className={linkClassName}>Feedback</Link>
           <Link to={'/contact'} className={linkClassName}>Contacts</Link>
         </div>
       </div>
