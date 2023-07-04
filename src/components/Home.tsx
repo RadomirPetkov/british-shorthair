@@ -7,11 +7,11 @@ export const Home = () => {
     return (
         <div className="h-screen">
             <section className=" flex-col w-screen h-full bg-front-image  bg-no-repeat bg-fixed bg-cover bg-center">
-                <div className="bg-black w-screen h-full opacity-0 m-0 p-0 flex-col">
+                <div className="bg-black w-screen h-full opacity-50 m-0 p-0 flex-col">
                     {/* <h3 className="text-2xl w-1/2 m-auto">“A cat doesn’t care if you are smart or dumb, give him your heart and he will give you his.”</h3>
                     <p className='pt-10'>Abraham Lincoln</p> */}
                 </div>
-                <h1 className="absolute bottom-32 text-4xl m-auto left-0 right-0 font-bold text-zinc-900">SilverGlow British Shorthair</h1>
+                <h1 className="absolute bottom-32 text-4xl m-auto left-0 right-0 font-bold text-slate-400">SilverGlow British Shorthair</h1>
             </section>
             <section className="pb-10">
                 <h1 className="font-bold text-5xl py-3 pt-6"> Who we are?</h1>

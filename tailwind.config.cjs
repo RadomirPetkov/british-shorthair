@@ -6,14 +6,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'baseBackground': '#f2f2f2',
+        'baseBackground': '#ababae',
         'stud': '#2f2f2f'
       },
       backgroundImage: {
         'front-image': "url('./pictures/background3.jpeg')"
       },
       backgroundColor: {
-        'baseBackground': '#808080',
+        'baseBackground': '#ababae',
       }
       
     }

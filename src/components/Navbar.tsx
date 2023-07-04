@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import logo from '../pictures/logo-white.png'
 
 export const Navbar = () => {
-  const linkClassName = 'hover:bg-baseBackground p-3 rounded-full'
+  const linkClassName = 'hover:bg-baseBackground py-2 px-3 rounded-full'
 
   return (
     <div className="bg-gradient-to-b from-slate-800 via-gray-600 to-gray-500 flex-wrap m-0">
@@ -13,14 +13,14 @@ export const Navbar = () => {
       </div>
       {/* mobile view */}
       <img src={logo} alt="" className='w-24 h-16 m-auto pt-5 sm:hidden' />
-        <div className='flex-wrap py-5 w-full space-y-2 px-0 sm:hidden'>
-          <div>
+        <div className='flex-wrap py-2 w-full space-y-2 px-0 sm:hidden'>
+          <div className='pt-2'>
             <Link to={'/'} className={linkClassName} >Home</Link>
             <Link to={'/about'} className={linkClassName} >About us</Link>
             <Link to={'/studs'} className={linkClassName} >Studs</Link>
             <Link to={'/queens'} className={linkClassName} >Queens</Link>
           </div>
-          <div>
+          <div className='pt-2'>
             <Link to={'/kittens'} className={linkClassName} >Available kittens</Link>
             <Link to={'/feedback'} className={linkClassName} >Feedback</Link>
             <Link to={'/contact'} className={linkClassName} >Contact us</Link>

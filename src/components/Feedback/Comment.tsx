@@ -1,16 +1,12 @@
-export const Comment = () => {
+export const Comment = (props: any) => {
+    console.log(props)
+    const { commentData } = props
+    const { message, ownerName, petName } = commentData
     return (
-        <div className="my-5 mx-8 border-white border-solid border-2 rounded-3xl bg-silver">
-            <p className="m-2 border-b-2 border-blue-300 p-3">Owner name: Ben Doak</p>
-            <p className=" border-b-2 border-blue-300 p-3">Cat details:
-                <p>
-                    Name: Little one
-                </p>
-                <p>
-                    Birthday: 12.12.2020
-                </p>
-            </p>
-            <p className="p-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque sapiente iusto officiis aperiam maxime quae porro facilis quas laborum officia.</p>
+        <div className="mx-3  my-10 shadow-lg shadow-black border-white border-y-2 rounded-3xl bg-silver max-w-3xl sm:m-auto sm:my-10">
+            <p className="m-auto border-b-2 border-blue-300 p-3 w-fit">Owner name: {ownerName} </p>
+            <p className="m-auto border-b-2 border-blue-300 p-3 w-fit">Pet name: {petName}</p>
+            <p className="p-5">{message}</p>
         </div>
     )
 }
