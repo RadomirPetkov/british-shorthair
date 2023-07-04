@@ -3,17 +3,16 @@ import logo from '../pictures/logo-white.png'
 
 export const Navbar = () => {
   const linkClassName = 'hover:bg-baseBackground p-3 rounded-full'
-  const navigation = true
 
   return (
-    <div className="bg-black flex-wrap m-0">
+    <div className="bg-gradient-to-b from-slate-800 via-gray-600 to-gray-500 flex-wrap m-0">
       <div>
         <Link to={'/'}>
           <img src={logo} alt="" className='h-16 absolute top-10 left-10 rounded-full hidden sm:block sm:h-10 md:h-16 xl:h-24 xl:top-5' />
         </Link>
       </div>
+      {/* mobile view */}
       <img src={logo} alt="" className='w-24 h-16 m-auto pt-5 sm:hidden' />
-      {navigation &&
         <div className='flex-wrap py-5 w-full space-y-2 px-0 sm:hidden'>
           <div>
             <Link to={'/'} className={linkClassName} >Home</Link>
@@ -30,7 +29,6 @@ export const Navbar = () => {
             {/* <Link to={'/around-the-world'} className={linkClassName} >Silverglows around the world</Link> */}
           </div>
         </div>
-      }
       <div>
 
         {/* web view */}
