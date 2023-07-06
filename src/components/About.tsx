@@ -1,8 +1,14 @@
+import { WrappedMap } from './AroundTheWorld/googlemaps'
+
 export const About = () => {
     return (
-        <div className="w-3/4 m-auto h-full pb-10">
-            <h1 className="p-10 text-5xl">SilverGlow British Shorthair</h1>
-            <p className="leading-8 mb-10">We are Ivan and Rositsa, and together, we are running SilverGlow British Shorthair cats. We started breeding BSH Silver Spotted and Classic Tabbies in England in 2014. With the time our breeding program has changed to Silver Tipped/Shaded cats and we started breeding in England and in Bulgaria. Each kitten is raised with care and diligence, and equality important, is well socialised. All our kittens and cats are indoors and live together with us at home</p>
+        <div className='h-screen w-screen'>
+            <WrappedMap
+                googleMapURL={'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyAp3oQzcyINh6_YYsyh8-68sqIHlV3jC1U'}
+                loadingElement={<div style={{ height: '100%' }} />}
+                containerElement={<div style={{ height: '100%' }} />}
+                mapElement={<div style={{ height: '100%' }} />}
+            />
         </div>
     )
 }
