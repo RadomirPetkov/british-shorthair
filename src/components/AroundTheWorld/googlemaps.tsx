@@ -3,10 +3,10 @@ import { GoogleMap, Marker, withScriptjs, OverlayView } from 'react-google-maps'
 import withGoogleMap from 'react-google-maps/lib/withGoogleMap'
 import raffaello from '../../pictures/raffaello.jpeg'
 import icie from '../../pictures/icie.jpeg'
-import bubbie from '../../pictures/bubbie.jpeg'
+// import bubbie from '../../pictures/bubbie.jpeg'
 import marcel from '../../pictures/marcel.jpeg'
 import background2 from '../../pictures/background2.jpg'
-// import { sizes } from './helper'
+import { sizes } from './helper'
 
 function Map () {
     const [currentZoom, setZoom] = useState(12)
@@ -50,28 +50,28 @@ function Map () {
             {currentZoom > 6 && currentZoom < 13 &&
             <OverlayView position={{ lat: 42.885321, lng: 25.492720 }} getPixelPositionOffset={getPixelPositionOffset2} mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}>
                 <div className=''>
-                    <img src={icie} alt="" className='h-12 w-12 rounded-full opacity-100' />
+                    <img src={icie} alt="" className={`h-${sizes[currentZoom]} w-${sizes[currentZoom]} rounded-full opacity-100`} />
                 </div>
             </OverlayView>}
         {/* third cat */}
-        {currentZoom > 6 && currentZoom < 13 &&
+        {/* {currentZoom > 6 && currentZoom < 13 &&
             <OverlayView position={{ lat: 42.885321, lng: 25.492720 }} mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}>
                 <div className=''>
-                    <img src={bubbie} alt="" className='h-12 w-12 rounded-full opacity-100' />
+                    <img src={bubbie} alt="" className={`h-${sizes[currentZoom]} w-${sizes[currentZoom]} rounded-full opacity-100`} />
                 </div>
-            </OverlayView>}
+            </OverlayView>} */}
         {/* forth cat */}
         {currentZoom > 6 && currentZoom < 13 &&
             <OverlayView position={{ lat: 42.885321, lng: 25.492720 }} getPixelPositionOffset={getPixelPositionOffset4} mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}>
                 <div className=''>
-                    <img src={background2} alt="" className='h-12 w-12 rounded-full opacity-100' />
+                    <img src={background2} alt="" className={`h-${sizes[currentZoom]} w-${sizes[currentZoom]} rounded-full opacity-100`} />
                 </div>
             </OverlayView>}
         {/* fifth cat */}
         {currentZoom > 6 && currentZoom < 13 &&
             <OverlayView position={{ lat: 42.885321, lng: 25.492720 }} getPixelPositionOffset={getPixelPositionOffset5} mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}>
                 <div className=''>
-                    <img src={marcel} alt="" className='h-12 w-12 rounded-full opacity-100' />
+                    <img src={marcel} alt="" className={`h-${sizes[currentZoom]} w-${sizes[currentZoom]} rounded-full opacity-100`} />
                 </div>
             </OverlayView>}
             {currentZoom <= 8 && <Marker position={{ lat: 42.867321, lng: 25.492720 }} />}
