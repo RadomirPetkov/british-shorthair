@@ -19,8 +19,6 @@ export const Home = () => {
                 <div className='flex flex-col items-center gap-1'>
                     <Link to={'/about'} className={buttonClassName} >About us</Link>
                     <Link to={'/about-the-breed'} className={buttonClassName} >About the breed</Link>
-                    <Link to={'/appearance'} className={buttonClassName} >Appearance</Link>
-                    <Link to={'/personality'} className={buttonClassName} >Personality</Link>
                     <Link to={'/FAQ'} className={buttonClassName} >FAQ</Link>
                 </div>
             </section>

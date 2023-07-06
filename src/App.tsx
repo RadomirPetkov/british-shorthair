@@ -11,9 +11,9 @@ import { Studs } from './components/Studs'
 import { Queens } from './components/Queens'
 import { Feedback } from './components/Feedback/Feedback'
 import { LeaveAComment } from './components/Feedback/LeaveAComment'
-import { AboutTheBreed } from './components/AboutTheBreed'
-import { Appearance } from './components/Appearance'
-import { Personality } from './components/Personality'
+import { AboutTheBreedMain } from './components/AboutTheBreed/AboutTheBreedMain'
+import { Appearance } from './components/AboutTheBreed/Appearance'
+import { Personality } from './components/AboutTheBreed/Personality'
 import { ScrollToTop } from './components/ScrollToTop'
 
 function App () {
@@ -24,7 +24,7 @@ function App () {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
-        <Route path='/about-the-breed' element={<AboutTheBreed />} />
+        <Route path='/about-the-breed' element={<AboutTheBreedMain />} />
         <Route path='/appearance' element={<Appearance />} />
         <Route path='/personality' element={<Personality />} />
         <Route path='/gallery' element={<Gallery />} />

@@ -2,25 +2,22 @@ import { useState } from 'react'
 import { doc, setDoc } from 'firebase/firestore'
 import { db } from '../../firebase-config'
 import { v4 as uuidv4 } from 'uuid'
-import ReactStars from 'react-rating-stars-component'
 import { useNavigate } from 'react-router-dom'
 
 export const LeaveAComment = () => {
     const [ownerName, setOwnerName] = useState('')
     const [petName, setPetName] = useState('')
     const [message, setMessage] = useState('')
-    const [stars, setStars] = useState(5)
     const navigate = useNavigate()
     const handleClick = async (e) => {
         e.preventDefault()
         await setDoc(doc(db, 'Feedback', uuidv4()), {
             ownerName,
             petName,
-            message,
-            rating: stars
+            message
         })
         navigate('/feedback')
-        console.log(ownerName, petName, message, stars)
+        console.log(ownerName, petName, message)
     }
 
     return <section className="bg-gray-300 my-auto rounded-xl h-screen w-screen text-black">
@@ -28,16 +25,6 @@ export const LeaveAComment = () => {
             <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
                 <div className="rounded-lg bg-slate-400 p-8 shadow-lg lg:col-span-3 lg:p-12">
                     <form action="" className="space-y-4">
-                        <div>
-                            <h5 className='pb-0 mb-0 text-xl'>Overall rating:</h5>
-                            <div className='m-auto py-3 flex flex-col items-center'>
-                                <ReactStars
-                                    count={5}
-                                    value={stars}
-                                    size={24}
-                                    onChange={(newValue) => setStars(newValue)} />
-                            </div>
-                        </div>
                         <div>
                             <label className="sr-only" htmlFor="name">Owner name</label>
                             <input
