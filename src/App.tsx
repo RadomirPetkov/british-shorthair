@@ -4,9 +4,8 @@ import { Navbar } from './components/Navbar'
 import { Home } from './components/Home'
 import { Gallery } from './components/Gallery'
 import { GalleryAdmin } from './components/GalleryAdmin'
-import { About } from './components/About'
+import { AroundTheWorld } from './components/AroundTheWorld'
 import { Kittens } from './components/Kittens'
-import { Messanger } from './components/Messanger'
 import { Studs } from './components/Studs'
 import { Queens } from './components/Queens'
 import { Feedback } from './components/Feedback/Feedback'
@@ -15,6 +14,7 @@ import { AboutTheBreedMain } from './components/AboutTheBreed/AboutTheBreedMain'
 import { Appearance } from './components/AboutTheBreed/Appearance'
 import { Personality } from './components/AboutTheBreed/Personality'
 import { ScrollToTop } from './components/ScrollToTop'
+import { Contact } from './components/Contact'
 
 function App () {
   return (
@@ -23,7 +23,7 @@ function App () {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/about' element={<About />} />
+        <Route path='/around-the-world' element={<AroundTheWorld />} />
         <Route path='/about-the-breed' element={<AboutTheBreedMain />} />
         <Route path='/appearance' element={<Appearance />} />
         <Route path='/personality' element={<Personality />} />
@@ -32,10 +32,10 @@ function App () {
         <Route path='/studs' element={<Studs />} />
         <Route path='/queens' element={<Queens />} />
         <Route path='/feedback' element={<Feedback />} />
+        <Route path='/contact' element={<Contact />} />
         <Route path='/feedback/comment' element={<LeaveAComment />} />
         <Route path='/gallery/admin' element={<GalleryAdmin />} />
       </Routes>
-      <Messanger />
     </>
   )
 }

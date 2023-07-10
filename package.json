@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
     "@react-google-maps/api": "^2.18.1",
     "firebase": "^9.22.2",
     "google-map-react": "^2.2.1",
@@ -19,6 +20,7 @@
     "react-icon": "^1.0.0",
     "react-icons": "^4.10.1",
     "react-messenger-customer-chat": "^0.8.0",
+    "react-modal": "^3.16.1",
     "react-rating-stars-component": "^2.2.0",
     "react-router-dom": "^6.13.0",
     "uuid": "^9.0.0"
