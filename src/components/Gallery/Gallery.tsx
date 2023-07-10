@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { storage } from '../firebase-config'
+import { storage } from '../../firebase-config'
 import { ref, listAll, getDownloadURL } from 'firebase/storage'
 
 export const Gallery = () => {

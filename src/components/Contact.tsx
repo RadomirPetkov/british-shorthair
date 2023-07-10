@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { buttonClassName } from './styles'
+import { buttonClassName } from './features/styles'
 import { FaFacebook, FaInstagram, FaWhatsapp, FaViber } from 'react-icons/fa6'
 import { MdEmail } from 'react-icons/md'
 import emailjs from '@emailjs/browser'

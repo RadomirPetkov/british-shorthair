@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
-import { buttonClassName } from './styles'
+import { buttonClassName } from './features/styles'
 import cert1 from '../pictures/cert1.jpg'
 import cert2 from '../pictures/cert2.jpg'
 import { useState } from 'react'
 import { ModalCert } from './ModalCert'
 import ReactModal from 'react-modal'
-import { Messanger } from './Messanger'
+import { Messanger } from './features/Messanger'
 
 export const Home = () => {
     const [cert1Open, setcert1Open] = useState(false)
