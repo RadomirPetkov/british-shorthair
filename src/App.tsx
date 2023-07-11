@@ -5,7 +5,7 @@ import { Home } from './components/Home'
 import { Gallery } from './components/Gallery/Gallery'
 import { GalleryAdmin } from './components/Gallery/GalleryAdmin'
 import { AroundTheWorld } from './components/AroundTheWorld'
-import { Kittens } from './components/Kittens'
+import { AvailableKittens } from './components/AvailableKittiens/AvailableKittens'
 import { Studs } from './components/Studs'
 import { Queens } from './components/Queens'
 import { Feedback } from './components/Feedback/Feedback'
@@ -15,6 +15,7 @@ import { Appearance } from './components/AboutTheBreed/Appearance'
 import { Personality } from './components/AboutTheBreed/Personality'
 import { ScrollToTop } from './components/features/ScrollToTop'
 import { Contact } from './components/Contact'
+import { ModalKitties } from './components/AvailableKittiens/ModalKitties'
 
 function App () {
   return (
@@ -28,13 +29,14 @@ function App () {
         <Route path='/appearance' element={<Appearance />} />
         <Route path='/personality' element={<Personality />} />
         <Route path='/gallery' element={<Gallery />} />
-        <Route path='/kittens' element={<Kittens />} />
+        <Route path='/kittens' element={<AvailableKittens />} />
         <Route path='/studs' element={<Studs />} />
         <Route path='/queens' element={<Queens />} />
         <Route path='/feedback' element={<Feedback />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/feedback/comment' element={<LeaveAComment />} />
         <Route path='/gallery/admin' element={<GalleryAdmin />} />
+        <Route path='/kittens/:dob' element={<ModalKitties />} />
       </Routes>
     </>
   )

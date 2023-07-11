@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { buttonClassName } from './features/styles'
 import { FaFacebook, FaInstagram, FaWhatsapp, FaViber } from 'react-icons/fa6'
 import { MdEmail } from 'react-icons/md'
@@ -6,9 +6,11 @@ import emailjs from '@emailjs/browser'
 import { useState } from 'react'
 
 export const Contact = () => {
+    const { state } = useLocation()
+    const { navPetName } = state
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
-    const [petName, setPetName] = useState('')
+    const [petName, setPetName] = useState(navPetName || '')
     const [message, setMessage] = useState('')
     const sendMessage = async (e) => {
         e.preventDefault()
