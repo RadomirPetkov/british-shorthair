@@ -12,7 +12,7 @@ export const Map = () => {
         this.getZoom() > 10 ? setVisible({ tryavna: true, london: true }) : setVisible({ tryavna: false, london: false })
     }
     const { isLoaded } = useLoadScript({
-        googleMapsApiKey: 'AIzaSyAp3oQzcyINh6_YYsyh8-68sqIHlV3jC1U'
+        googleMapsApiKey: import.meta.env.VITE_REACT_APP_GOOGLE_MAPS_API_KEY
     })
     const center = useMemo(() => ({ lat: 42.867321, lng: 25.492720 }), [])
     const getPixelPositionOffset = (width, height) => ({

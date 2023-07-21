@@ -3,7 +3,7 @@ import { buttonClassName } from './features/styles'
 import cert1 from '../pictures/cert1.jpg'
 import cert2 from '../pictures/cert2.jpg'
 import { useState } from 'react'
-import { ModalCert } from './ModalCert'
+import { Modal } from './features/Modal'
 import ReactModal from 'react-modal'
 import { Messanger } from './features/Messanger'
 
@@ -16,7 +16,7 @@ export const Home = () => {
             <ReactModal
                 isOpen={cert1Open}
                 contentLabel="Example Modal"
-                contentElement={() => <ModalCert pic={cert1} setOpen={setcert1Open}></ModalCert>}
+                contentElement={() => <Modal pic={cert1} setOpen={setcert1Open}></Modal>}
                 shouldCloseOnEsc={true}
                 closeTimeoutMS={500}
             >
@@ -24,7 +24,7 @@ export const Home = () => {
             <ReactModal
                 isOpen={cert2Open}
                 contentLabel="Example Modal"
-                contentElement={() => <ModalCert pic={cert2} setOpen={setcert2Open}></ModalCert>}
+                contentElement={() => <Modal pic={cert2} setOpen={setcert2Open}></Modal>}
                 shouldCloseOnEsc={true}
                 closeTimeoutMS={500}
             >

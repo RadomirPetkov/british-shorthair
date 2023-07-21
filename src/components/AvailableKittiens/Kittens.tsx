@@ -11,7 +11,7 @@ type KittenInfo = {
     gender: string,
     color: string
 }
-export const ModalKitties = () => {
+export const Kittens = () => {
     const { dob } = useParams()
     const [snapshots, setSnapshots] = useState([])
     const feedbackRef = collection(db, 'AvailableKittens')

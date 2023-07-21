@@ -7,7 +7,7 @@ import { useState } from 'react'
 
 export const Contact = () => {
     const { state } = useLocation()
-    const { navPetName } = state
+    const { navPetName } = state || ''
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [petName, setPetName] = useState(navPetName || '')
@@ -58,14 +58,14 @@ export const Contact = () => {
                 <div className='flex flex-col gap-3'>
                     <h3>Our Instagram page</h3>
                     <div className='flex flex-row items-center gap-3 m-auto'>
-                        <Link to={'https://www.instagram.com/silverglow.bsh'}><FaInstagram size={52} className='bg-gradient-to-bl from-indigo-900 via-rose-400 to-violet-300 rounded-full p-1'/></Link>
+                        <Link to={'https://www.instagram.com/silverglow.bsh'}><FaInstagram size={52} className='bg-gradient-to-bl from-indigo-900 via-rose-400 to-violet-300 rounded-full p-1' /></Link>
                         <Link className='cursor-pointer bg-gradient-to-bl from-indigo-900 via-rose-400 to-violet-300 p-3 rounded-full' to={'https://www.instagram.com/silverglow.bsh'}>Silverglow.bsh</Link>
                     </div>
                 </div>
                 <div className='flex flex-col gap-3'>
                     <h3>Text us on WhatsPpp</h3>
                     <div className='flex flex-row m-auto items-center gap-3'>
-                        <FaWhatsapp size={52} color='green' className='bg-white p-2 rounded-full'/>
+                        <FaWhatsapp size={52} color='green' className='bg-white p-2 rounded-full' />
                         <p className='bg-green-600 p-3 rounded-full'>+447473737026</p>
                     </div>
                 </div>

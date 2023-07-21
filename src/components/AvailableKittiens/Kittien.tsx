@@ -3,6 +3,8 @@ import { ref, listAll, getDownloadURL } from 'firebase/storage'
 import { storage } from '../../firebase-config'
 import { useNavigate } from 'react-router-dom'
 import { buttonClassName } from '../features/styles'
+import ReactModal from 'react-modal'
+import { Modal } from '../features/Modal'
 
 type KittenProps = {
     data: {
@@ -18,6 +20,10 @@ export const Kitten = (props: KittenProps) => {
     const { data } = props
     const navigate = useNavigate()
     const [imageList, setImageList] = useState([])
+    const [modalImage, setModalImage] = useState('')
+    const [isOpen, setIsOpen] = useState(false)
+    ReactModal.setAppElement('#root')
+
     const imageListRef = ref(storage, `available/${data.dob}/${data.urlFolderName}`)
     useEffect(() => {
         listAll(imageListRef).then((res) => {
@@ -32,6 +38,10 @@ export const Kitten = (props: KittenProps) => {
     const handleClick = () => {
         navigate('/contact', { replace: false, state: { navPetName: data.name } })
     }
+    const handleImgClick = (e) => {
+        setModalImage(e.target.src)
+        setIsOpen(true)
+    }
     return (
         <div className='flex flex-col items-center py-10 h-full'>
             <h3 className=''>{data.name}</h3>
@@ -40,9 +50,17 @@ export const Kitten = (props: KittenProps) => {
             <h3 className=''>Date of birth: {data.dob}</h3>
             <h3 className=''><button className={buttonClassName.concat('text-green-400')} onClick={handleClick}>Available</button></h3>
             <div className='flex flex-col w-full h-auto gap-5'>
-                <img src={imageList[0]} alt='' className='h-48 m-auto max-h-96 w-3/4 rounded-xl shadow-black shadow-md' />
-                <img src={imageList[1]} alt='' className='h-auto w-3/4 m-auto max-h-96 rounded-xl shadow-black shadow-md' />
+                <img src={imageList[0]} alt='' className='h-auto m-auto max-h-96 w-3/4 rounded-xl shadow-black shadow-md' onClick={handleImgClick} />
+                <img src={imageList[1]} alt='' className='h-auto w-3/4 m-auto max-h-96 rounded-xl shadow-black shadow-md' onClick={handleImgClick} />
             </div>
+            <ReactModal
+                isOpen={isOpen}
+                contentLabel="Example Modal"
+                contentElement={() => <Modal pic={modalImage} setOpen={setIsOpen}></Modal>}
+                shouldCloseOnEsc={true}
+                closeTimeoutMS={500}
+            >
+            </ReactModal>
         </div>
     )
 }

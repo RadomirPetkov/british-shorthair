@@ -15,7 +15,7 @@ import { Appearance } from './components/AboutTheBreed/Appearance'
 import { Personality } from './components/AboutTheBreed/Personality'
 import { ScrollToTop } from './components/features/ScrollToTop'
 import { Contact } from './components/Contact'
-import { ModalKitties } from './components/AvailableKittiens/ModalKitties'
+import { Kittens } from './components/AvailableKittiens/Kittens'
 
 function App () {
   return (
@@ -36,7 +36,7 @@ function App () {
         <Route path='/contact' element={<Contact />} />
         <Route path='/feedback/comment' element={<LeaveAComment />} />
         <Route path='/gallery/admin' element={<GalleryAdmin />} />
-        <Route path='/kittens/:dob' element={<ModalKitties />} />
+        <Route path='/kittens/:dob' element={<Kittens />} />
       </Routes>
     </>
   )
