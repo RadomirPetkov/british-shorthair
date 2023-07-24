@@ -23,6 +23,7 @@ export const Contact = () => {
     }
     return (
         <div>
+            {/* FORM */}
             <div className="bg-gray-400 w-5/6 m-auto p-10 pt-5 my-10 rounded-xl">
                 <form className="flex flex-col gap-3">
                     <h3 className="m-0 p-0 text-3xl">Contact us</h3>
@@ -47,37 +48,38 @@ export const Contact = () => {
                     </div>
                 </form>
             </div>
-            <div className='m-auto flex flex-col gap-3 pb-10'>
+            {/* CONTACTS */}
+            <div className='m-auto flex flex-col gap-5 pb-10 justify-start items-start w-3/4'>
                 <div className='flex flex-col gap-3'>
-                    <h3>Check our Facebook page</h3>
+                    <h3 className='flex items-start'>Check our Facebook page</h3>
                     <div className='flex flex-row items-center gap-3 m-auto'>
                         <Link to={'https://www.facebook.com/SilverglowBritishShorthair'}><FaFacebook size={52} className='bg-blue-300 rounded-full p-2' /></Link>
                         <Link className='cursor-pointer bg-blue-300 p-3 text-black rounded-full' to={'https://www.facebook.com/SilverglowBritishShorthair'}>SilverGlow British Shorthair</Link>
                     </div>
                 </div>
                 <div className='flex flex-col gap-3'>
-                    <h3>Our Instagram page</h3>
-                    <div className='flex flex-row items-center gap-3 m-auto'>
+                    <h3 className='flex items-start'>Our Instagram page</h3>
+                    <div className='flex flex-row items-center gap-3'>
                         <Link to={'https://www.instagram.com/silverglow.bsh'}><FaInstagram size={52} className='bg-gradient-to-bl from-indigo-900 via-rose-400 to-violet-300 rounded-full p-1' /></Link>
                         <Link className='cursor-pointer bg-gradient-to-bl from-indigo-900 via-rose-400 to-violet-300 p-3 rounded-full' to={'https://www.instagram.com/silverglow.bsh'}>Silverglow.bsh</Link>
                     </div>
                 </div>
                 <div className='flex flex-col gap-3'>
-                    <h3>Text us on WhatsPpp</h3>
+                    <h3 className='flex items-start'>Text us on WhatsApp</h3>
                     <div className='flex flex-row m-auto items-center gap-3'>
                         <FaWhatsapp size={52} color='green' className='bg-white p-2 rounded-full' />
                         <p className='bg-green-600 p-3 rounded-full'>+447473737026</p>
                     </div>
                 </div>
                 <div className='flex flex-col gap-3'>
-                    <h3>Viber</h3>
+                    <h3 className='flex items-start'>Get in touch with Viber</h3>
                     <div className='flex flex-row m-auto items-center gap-3'>
                         <FaViber size={52} color='purple' className='bg-white p-2 rounded-full' />
                         <p className='bg-purple-700 p-3 rounded-full'>+359887022592</p>
                     </div>
                 </div>
                 <div className='flex flex-col gap-3'>
-                    <h3>Or send us an email at</h3>
+                    <h3 className='flex items-start'>Or send us an email at</h3>
                     <div className='flex flex-row m-auto items-center gap-3'>
                         <MdEmail size={42} />
                         <p>silverglowcats@outlook.com</p>

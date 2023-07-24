@@ -21,7 +21,7 @@ export const FAQ = () => {
     },
     {
         title: 'I\'ve never had a kitten before, what should I know before have one?',
-        text: 'Always go for a kitten only if you are happy with all the given information. Having a cat is a lifetime decision. Don\'t forget about the worm and flea treatments and don\'t miss the vaccines neither. BSH fully grow up when they are 4-5 years old. So your cat will reach her/his body size by then. Eye color develops till the cat is around 1 and a half year old. The Tipped can get slightly lighter or darker ( usually lighter ) with the time. The Silver ( Agouti ) BSH are a bit "smaller" than the Solid ( such as blue, fawn, cinnamon, chocolate, cream, black, red ... ). It is normal for an adult silver femalw to weigh around 3.5kg and for a male - around 5kg.'
+        text: 'Always go for a kitten only if you are happy with all the given information. Having a cat is a lifetime decision. Don\'t forget about the worm and flea treatments and don\'t miss the vaccines neither. BSH fully grow up when they are 4-5 years old. So your cat will reach her/his body size by then. Eye color develops till the cat is around 1 and a half year old. The Tipped can get slightly lighter or darker ( usually lighter ) with the time. The Silver ( Agouti ) BSH are a bit "smaller" than the Solid ( such as blue, fawn, cinnamon, chocolate, cream, black, red ... ). It is normal for an adult silver female to weigh around 3.5kg and for a male - around 5kg.'
     }
     ]
     return (
