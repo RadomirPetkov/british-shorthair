@@ -17,30 +17,34 @@ import { ScrollToTop } from './components/features/ScrollToTop'
 import { Contact } from './components/Contact'
 import { Kittens } from './components/AvailableKittiens/Kittens'
 import { FAQ } from './components/FAQ/FAQ'
+import { Footer } from './components/Footer'
 
 function App () {
   return (
-    <>
+    <div className='relative min-h-screen'>
       <ScrollToTop />
       <Navbar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/around-the-world' element={<AroundTheWorld />} />
-        <Route path='/about-the-breed' element={<AboutTheBreedMain />} />
-        <Route path='/appearance' element={<Appearance />} />
-        <Route path='/personality' element={<Personality />} />
-        <Route path='/gallery' element={<Gallery />} />
-        <Route path='/kittens' element={<AvailableKittens />} />
-        <Route path='/studs' element={<Studs />} />
-        <Route path='/queens' element={<Queens />} />
-        <Route path='/feedback' element={<Feedback />} />
-        <Route path='/contact' element={<Contact />} />
-        <Route path='/FAQ' element={<FAQ />} />
-        <Route path='/feedback/comment' element={<LeaveAComment />} />
-        <Route path='/gallery/admin' element={<GalleryAdmin />} />
-        <Route path='/kittens/:dob' element={<Kittens />} />
-      </Routes>
-    </>
+      <div className='pb-14'>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/around-the-world' element={<AroundTheWorld />} />
+          <Route path='/about-the-breed' element={<AboutTheBreedMain />} />
+          <Route path='/appearance' element={<Appearance />} />
+          <Route path='/personality' element={<Personality />} />
+          <Route path='/gallery' element={<Gallery />} />
+          <Route path='/kittens' element={<AvailableKittens />} />
+          <Route path='/studs' element={<Studs />} />
+          <Route path='/queens' element={<Queens />} />
+          <Route path='/feedback' element={<Feedback />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/FAQ' element={<FAQ />} />
+          <Route path='/feedback/comment' element={<LeaveAComment />} />
+          <Route path='/gallery/admin' element={<GalleryAdmin />} />
+          <Route path='/kittens/:dob' element={<Kittens />} />
+        </Routes>
+      </div>
+      <Footer />
+    </div>
   )
 }
 

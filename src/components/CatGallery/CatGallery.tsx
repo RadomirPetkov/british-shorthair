@@ -36,7 +36,7 @@ export const CatGallery = (props:Props) => {
     }
 
     return (
-        <div className="relative w-full m-auto mt-0 mb-14 p-3 pt-5 bg-stud my-10 rounded-3xl h-auto space-y-5 sm:w-1/2">
+        <div className="relative overflow-hidden w-full m-auto mt-0 mb-14 p-3 pt-5 bg-stud my-10 rounded-3xl space-y-5 sm:w-1/2">
             <h3 className="">{ fullName }</h3>
             {petName && <h3 className="">Pet name: { petName }</h3>}
             <h3 className="">Dam: { dam }</h3>
