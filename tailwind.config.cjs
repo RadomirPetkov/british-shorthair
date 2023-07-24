@@ -14,8 +14,13 @@ module.exports = {
       },
       backgroundColor: {
         'baseBackground': '#ababae',
+      },
+      transitionProperty: {
+        'height': 'height'
+      },
+      maxHeight:{
+        '200': '100rem'
       }
-      
     }
   },
   plugins: [require("daisyui")],
@@ -24,7 +29,7 @@ module.exports = {
       {
         light: {
           ...require("daisyui/src/theming/themes")["[data-theme=light]"],
-        'base-content': '#fff',
+          'base-content': '#fff',
 
         },
       },

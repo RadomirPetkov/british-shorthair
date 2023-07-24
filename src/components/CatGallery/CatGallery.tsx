@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { getDownloadURL, listAll, ref } from 'firebase/storage'
 import { storage } from '../../firebase-config'
+import { FaPaw } from 'react-icons/fa6'
+import { PiPawPrint } from 'react-icons/pi'
 type Props = {
     firebaseUrl: string,
     sir: string,
@@ -34,7 +36,7 @@ export const CatGallery = (props:Props) => {
     }
 
     return (
-        <div className="w-full m-auto mt-0 mb-14 p-3 pt-5 bg-stud my-10 rounded-3xl h-auto space-y-5 sm:w-1/2">
+        <div className="relative w-full m-auto mt-0 mb-14 p-3 pt-5 bg-stud my-10 rounded-3xl h-auto space-y-5 sm:w-1/2">
             <h3 className="">{ fullName }</h3>
             {petName && <h3 className="">Pet name: { petName }</h3>}
             <h3 className="">Dam: { dam }</h3>
@@ -45,6 +47,30 @@ export const CatGallery = (props:Props) => {
                 <img src={imageList[1]} alt="" className='h-1/2 w-1/6 m-auto rounded-full pointer-events-auto cursor-pointer shadow-black shadow-md' onClick={(e) => { handleClick(e) }} />
                 <img src={imageList[2]} alt="" className='h-1/2 w-1/6 m-auto rounded-full pointer-events-auto cursor-pointer shadow-black shadow-md' onClick={(e) => { handleClick(e) }} />
                 <img src={imageList[3]} alt="" className='h-1/2 w-1/6 m-auto rounded-full pointer-events-auto cursor-pointer shadow-black shadow-md' onClick={(e) => { handleClick(e) }} />
+            </div>
+            <div className='absolute top-40 -left-96'>
+                <FaPaw size={75} />
+            </div>
+            <div className='absolute top-56 -left-52'>
+                <FaPaw size={75} />
+            </div>
+            <div className='absolute top-80 -left-96'>
+                <FaPaw size={75} />
+            </div>
+            <div className='absolute top-96 -left-52'>
+                <FaPaw size={75} />
+            </div>
+            <div className='absolute top-40 -right-96'>
+                <PiPawPrint size={75} />
+            </div>
+            <div className='absolute top-56 -right-52'>
+                <PiPawPrint size={75} />
+            </div>
+            <div className='absolute top-80 -right-96'>
+                <PiPawPrint size={75} />
+            </div>
+            <div className='absolute top-96 -right-52'>
+                <PiPawPrint size={75} />
             </div>
         </div>
     )

@@ -16,6 +16,7 @@ import { Personality } from './components/AboutTheBreed/Personality'
 import { ScrollToTop } from './components/features/ScrollToTop'
 import { Contact } from './components/Contact'
 import { Kittens } from './components/AvailableKittiens/Kittens'
+import { FAQ } from './components/FAQ/FAQ'
 
 function App () {
   return (
@@ -34,6 +35,7 @@ function App () {
         <Route path='/queens' element={<Queens />} />
         <Route path='/feedback' element={<Feedback />} />
         <Route path='/contact' element={<Contact />} />
+        <Route path='/FAQ' element={<FAQ />} />
         <Route path='/feedback/comment' element={<LeaveAComment />} />
         <Route path='/gallery/admin' element={<GalleryAdmin />} />
         <Route path='/kittens/:dob' element={<Kittens />} />
