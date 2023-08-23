@@ -40,7 +40,7 @@ export const Home = () => {
                 <section className="pb-10">
                     <h1 className="font-bold text-5xl py-3 pt-6"> Who we are?</h1>
                     <p className="p-10 py-5 w-5/6 m-auto">We are Ivan and Rositsa, and together, we are running SilverGlow British Shorthair cats. We started breeding BSH Silver Spotted and Classic Tabbies in England in 2014. With the time our breeding program has changed to Silver Tipped/Shaded cats and we started breeding in England and in Bulgaria. Each kitten is raised with care and diligence, and equality important, is well socialised. All our kittens and cats are indoors and live together with us at home</p>
-                    <p className="p-10 py-5 w-5/6 m-auto">All our kittens leave us GCCF or WCF registered with pedigrees, fully vaccinated ( FeLV vaccinated ), (The kittens born in Bulgaria are Rabies vaccinated and with come with an EU passport ), microchipped, flea and worm treated, scratch post and litter trained, with a contract for sale.</p>
+                    <p className="p-10 py-5 w-5/6 m-auto">All our kittens leave us GCCF or WCF registered with pedigrees, fully vaccinated ( FeLV vaccinated ), (The kittens born in Bulgaria are Rabies vaccinated and come with an EU passport ), microchipped, flea and worm treated, scratch post and litter trained, with a contract for adoption.</p>
                     <div className='flex flex-col gap-10 my-10 md:flex-row'>
                         <img src={cert2} alt="" className='w-3/4 m-auto rounded-xl md:w-1/3' onClick={() => setcert2Open(true)!} />
                         <img src={cert1} alt="" className='w-3/4 m-auto rounded-xl md:w-1/3' onClick={() => setcert1Open(true)!} />
