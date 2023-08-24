@@ -5,6 +5,7 @@ import { storage } from '../../firebase-config'
 import { useEffect, useState } from 'react'
 import ReactModal from 'react-modal'
 import { Modal } from '../features/Modal'
+import { useTranslation } from 'react-i18next'
 
 type KittensLitterProps = {
     parent1: string,
@@ -14,6 +15,7 @@ type KittensLitterProps = {
 }
 
 export const KittensLitter = ({ parent1, parent2, parentNames, dob }: KittensLitterProps) => {
+    const { t } = useTranslation()
     const navigate = useNavigate()
     const [firstImage, setFirstImage] = useState('')
     const [secondImage, setSecondImage] = useState('')
@@ -47,19 +49,19 @@ export const KittensLitter = ({ parent1, parent2, parentNames, dob }: KittensLit
 
     return (
         <div className=" w-5/6 m-auto p-2 pt-5 bg-gray-300 my-10 rounded-3xl h-auto text-black space-y-5 sm:w-1/2 shadow-lg shadow-black">
-            <h3>Parents</h3>
+            <h3>{t('parents')}</h3>
             <div className='flex flex-row items-start justify-evenly'>
                 <div className='w-1/2 flex flex-col gap-3 items-center'>
                     <img src={firstImage} alt="" className='w-28 h-28 rounded-full' onClick={handleClick} />
-                    <p>Sir: {parentNames[0]}</p>
+                    <p>{t('sir')}: {parentNames[0]}</p>
                 </div>
                 <div className='w-1/2 flex flex-col gap-3 items-center'>
                     <img src={secondImage} alt="" className='w-28 h-28 rounded-full' onClick={handleClick} />
-                    <p>Dam: {parentNames[1]}</p>
+                    <p>{t('dam')}: {parentNames[1]}</p>
                 </div>
 
             </div>
-            <button className={buttonClassName.concat(color)} onClick={() => { if (dob !== 'none') navigate(`/kittens/${dob}`) }}>{dob !== 'none' ? 'See the kittens' : 'Comming soon'}</button>
+            <button className={buttonClassName.concat(color)} onClick={() => { if (dob !== 'none') navigate(`/kittens/${dob}`) }}>{dob !== 'none' ? t('see-kittens-button') : t('coming-soon-button')}</button>
             <ReactModal
                 isOpen={isOpen}
                 contentLabel="Example Modal"
