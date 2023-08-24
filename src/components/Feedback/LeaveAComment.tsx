@@ -12,17 +12,25 @@ export const LeaveAComment = () => {
     const [ownerName, setOwnerName] = useState('')
     const [petName, setPetName] = useState('')
     const [message, setMessage] = useState('')
+    const [isNameFilled, setIsNameFilled] = useState(true)
     const [stars, setStars] = useState(5)
     const navigate = useNavigate()
     const handleClick = async (e) => {
         e.preventDefault()
-        await setDoc(doc(db, 'Feedback', uuidv4()), {
-            ownerName,
-            petName,
-            message,
-            rating: stars
-        })
-        navigate('/feedback')
+        if (ownerName === '') {
+            setIsNameFilled(false)
+        } else {
+            await setDoc(doc(db, 'Feedback', uuidv4()), {
+                ownerName,
+                petName,
+                message,
+                rating: stars
+            })
+            navigate('/feedback')
+        }
+    }
+    const handleNameChange = (e) => {
+        setOwnerName(e.target.value)
     }
 
     return <section className="rounded-xl h-screen w-screen text-black">
@@ -30,7 +38,7 @@ export const LeaveAComment = () => {
             <div className="rounded-lg bg-slate-400 p-8 shadow-lg lg:col-span-3 lg:p-12">
                 <form action="" className="space-y-4">
                     <div>
-                        <h5 className='pb-0 mb-0 text-xl'>Overall rating:</h5>
+                        <h5 className='pb-0 mb-0 text-xl'>{t('overall-rating')}:</h5>
                         <div className='m-auto py-3 flex flex-col items-center'>
                             <ReactStars
                                 count={5}
@@ -50,8 +58,9 @@ export const LeaveAComment = () => {
                             type="text"
                             id="name"
                             value={ownerName}
-                            onChange={(e) => setOwnerName(e.target.value)}
+                            onChange={handleNameChange}
                         />
+                        {!isNameFilled && <p className='text-red-600'>{t('field-required')}</p>}
                     </div>
                     <div>
                         <div>

@@ -18,7 +18,7 @@ export const Feedback = () => {
     }, [])
 
     return (
-        <div className='overflow-y-hidden'>
+        <div className='overflow-hidden w-screen m-0'>
             <div className='w-screen'>
             </div>
             <button className='bg-gray-100 text-black p-3 mt-10 rounded-xl'>
