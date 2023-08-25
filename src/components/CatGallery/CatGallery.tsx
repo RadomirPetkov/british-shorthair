@@ -40,7 +40,7 @@ export const CatGallery = (props: Props) => {
     return (
         <div className="relative overflow-hidden w-full m-auto mt-0 mb-14 p-3 pt-5 bg-stud my-10 rounded-3xl space-y-5 sm:w-1/2">
             <h3 className="">{fullName}</h3>
-            {petName && <h3 className="">{t('pet-name')}: {petName}</h3>}
+            {petName && <h3 className="">{t('pet-name-queens')}: {petName}</h3>}
             <h3 className="">{t('dam')}: {dam}</h3>
             <h3 className="">{t('sir')}: {sir}</h3>
             <img src={mainImage} alt="" className='h-1/2 m-auto max-h-96 rounded-xl shadow-black shadow-md' />

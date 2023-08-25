@@ -47,12 +47,16 @@ export const Navbar = () => {
         <Link to={'/feedback'} className={linkClassName}>{t('feedback')}</Link>
         <Link to={'/contact'} className={linkClassName}>{t('contacts')}</Link>
       </div>
-      <div className='text-black p-0 absolute top-0 right-0'>
-        <Select onChange={changeHandler} defaultValue={{ value: language, label: 'EN' }} options={[
-          { value: 'en', label: 'EN' },
-          { value: 'bg', label: 'BG' }
-        ]
-        } />
+      <div className='text-black p-0 absolute top-0 right-0 text-xs'>
+        <Select
+          onChange={changeHandler}
+          defaultValue={{ value: language, label: 'EN' }}
+          options={[
+            { value: 'en', label: 'EN' },
+            { value: 'bg', label: 'BG' }
+          ]}
+          components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }}
+        />
       </div>
     </div>
   )
