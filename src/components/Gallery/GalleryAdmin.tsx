@@ -26,7 +26,6 @@ export const GalleryAdmin = () => {
     }
 
     const deleteImage = (url: any): any => {
-        console.log(url)
         const imageRef = ref(storage, url)
         deleteObject(imageRef)
         alert('Image deleted')

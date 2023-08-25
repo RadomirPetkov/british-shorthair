@@ -28,7 +28,6 @@ export const Feedback = () => {
             </button>
             <div className='m-auto'>
                 {snaphots.map((snapshot) => {
-                    console.log(snapshot)
                     return <Comment commentData={snapshot} key={snapshot} />
                 })}
             </div>

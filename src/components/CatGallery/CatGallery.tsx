@@ -21,7 +21,6 @@ export const CatGallery = (props: Props) => {
     useEffect(() => {
         listAll(imageListRef).then((res) => {
             getDownloadURL(res.items[0]).then((resp) => {
-                console.log(resp)
                 setMainImage(resp)
             }
             )
