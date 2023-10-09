@@ -18,6 +18,7 @@ import { Contact } from './components/Contact'
 import { Kittens } from './components/AvailableKittiens/Kittens'
 import { FAQ } from './components/FAQ/FAQ'
 import { Footer } from './components/Footer'
+import { Login } from './components/Login/Login'
 
 function App () {
   return (
@@ -38,6 +39,7 @@ function App () {
             <Route path='/feedback' element={<Feedback />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/FAQ' element={<FAQ />} />
+            <Route path='/login' element={<Login />} />
             <Route path='/feedback/comment' element={<LeaveAComment />} />
             <Route path='/gallery/admin' element={<GalleryAdmin />} />
             <Route path='/kittens/:dob' element={<Kittens />} />
