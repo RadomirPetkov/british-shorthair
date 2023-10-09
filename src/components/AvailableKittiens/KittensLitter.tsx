@@ -11,7 +11,8 @@ type KittensLitterProps = {
     parent1: string,
     parent2: string,
     parentNames: string[],
-    dob: string
+    dob: string,
+    id: string
 }
 
 export const KittensLitter = ({ parent1, parent2, parentNames, dob }: KittensLitterProps) => {
