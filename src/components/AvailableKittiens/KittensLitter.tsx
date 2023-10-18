@@ -12,10 +12,11 @@ type KittensLitterProps = {
     parent2: string,
     parentNames: string[],
     dob: string,
-    id: string
+    id: string,
+    available: boolean
 }
 
-export const KittensLitter = ({ parent1, parent2, parentNames, dob }: KittensLitterProps) => {
+export const KittensLitter = ({ parent1, parent2, parentNames, dob, available, id }: KittensLitterProps) => {
     const { t } = useTranslation()
     const navigate = useNavigate()
     const [firstImage, setFirstImage] = useState('')
@@ -42,7 +43,7 @@ export const KittensLitter = ({ parent1, parent2, parentNames, dob }: KittensLit
             })
         })
     }, [])
-    const color = dob !== 'none' ? 'text-green-400' : 'text-red-400'
+    const color = available ? 'text-green-400' : 'text-red-400'
     const handleClick = (e) => {
         setModalImage(e.target.src)
         setIsOpen(true)
@@ -62,7 +63,11 @@ export const KittensLitter = ({ parent1, parent2, parentNames, dob }: KittensLit
                 </div>
 
             </div>
-            <button className={buttonClassName.concat(color)} onClick={() => { if (dob !== 'none') navigate(`/kittens/${dob}`) }}>{dob !== 'none' ? t('see-kittens-button') : t('coming-soon-button')}</button>
+            <button
+                className={buttonClassName.concat(color)}
+                onClick={() => { if (available) { navigate(`/kittens/${id}`) } }}>
+                {available ? t('see-kittens-button') : t('coming-soon-button')}
+            </button>
             <ReactModal
                 isOpen={isOpen}
                 contentLabel="Example Modal"

@@ -42,7 +42,7 @@ function App () {
             <Route path='/login' element={<Login />} />
             <Route path='/feedback/comment' element={<LeaveAComment />} />
             <Route path='/gallery/admin' element={<GalleryAdmin />} />
-            <Route path='/kittens/:dob' element={<Kittens />} />
+            <Route path='/kittens/:id' element={<Kittens />} />
           </Routes>
         </div>
         <Footer />

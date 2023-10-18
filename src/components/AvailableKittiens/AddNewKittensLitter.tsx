@@ -28,7 +28,7 @@ export const AddNewKittensLitter = () => {
         { value: 'ainie', label: 'Ainie' },
         { value: 'aspen', label: 'Aspen' },
         { value: 'baicie', label: 'Baicie' },
-        { value: 'bubbie', label: 'Bubbie' },
+        { value: 'bubie', label: 'Bubie' },
         { value: 'candy', label: 'Candy' },
         { value: 'icie', label: 'Icie' },
         { value: 'marvin', label: 'Marvin' },

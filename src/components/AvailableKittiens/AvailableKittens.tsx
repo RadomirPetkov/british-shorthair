@@ -11,7 +11,17 @@ export const AvailableKittens = () => {
         const fetchData = async () => {
             const firebaseDocs = await getDocs(collection(db, 'KittensLitter'))
             firebaseDocs.forEach((doc) => {
-                setFirebaseDocsData((oldData:any) => [...oldData, doc])
+                setFirebaseDocsData((oldData) => {
+                    return [...oldData, doc].sort((a, b) => {
+                        if (a.data().available < b.data().available) {
+                            return 1
+                        }
+                        if (a.data().available > b.data().available) {
+                            return -1
+                        }
+                        return 0
+                    })
+                })
             })
         }
         fetchData()
@@ -22,16 +32,20 @@ export const AvailableKittens = () => {
 
     return (
         <div className=''>
-            <KittensLitter dob={'13.04.2023'} parent1={'marvin'} parent2={'ainie'} parentNames={['World Champion Marvin Polaris', 'Champion SilverGlow Little Moonshadow (pet name: Ainie)']} />
-            <KittensLitter dob={'29.03.2023'} parent1={'raffaello'} parent2={'candy'} parentNames={['Champion SilverGlow Ferrero Raffaello', 'Nicomedia Candy']} />
-            <KittensLitter dob={'12.08.2023'} parent1={'aspen'} parent2={'bubie'} parentNames={['Aspen SilverGlow', 'Champion SilverGlow Hubba Bubba (pet name: Bubie)']} />
-            <KittensLitter dob={'none'} parent1={'aspen'} parent2={'icie'} parentNames={['Aspen SilverGlow', 'SilverGlow Ice Ice Baby (pet name: Icie)']} />
-            <KittensLitter dob={'none'} parent1={'raffaello'} parent2={'baicie'} parentNames={['Champion SilverGlow Ferrero Raffaello', 'Baicie SilverGlow']} />
             {/* {user && <AddNewKittensLitter/>} */}
-            {firebaseDocsData.map((doc:any) => {
-                const data = doc.data()
+            {firebaseDocsData.map((doc: any) => {
+                const data = doc
+                    .data()
                 return (
-                    <KittensLitter key={doc.id} id={doc.id} dob={'none'} parent1={data?.parentPic1} parent2={data?.parentPic2} parentNames={[`${data.parentName1}`, `${data.parentName2}`]} />
+                    <KittensLitter
+                        key={doc.id}
+                        id={doc.id}
+                        dob={'none'}
+                        parent1={data?.parentPic1}
+                        parent2={data?.parentPic2}
+                        parentNames={[`${data.parentName1}`, `${data.parentName2}`]}
+                        available={data.available}
+                    />
                 )
             })}
             <AddNewKittensLitter />
