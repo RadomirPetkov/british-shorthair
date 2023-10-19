@@ -4,6 +4,7 @@ import { Kitten } from './Kittien'
 import { useParams } from 'react-router-dom'
 import { storage, db } from '../../firebase-config'
 import { ref, uploadBytes } from 'firebase/storage'
+import { useSelector } from 'react-redux'
 
 type KittenInfo = {
     name: string,
@@ -15,6 +16,7 @@ type KittenInfo = {
     id: string
 }
 export const Kittens = () => {
+    const { user } = useSelector((state: any) => state.user)
     const [name, setName] = useState('')
     const [gender, setGender] = useState('')
     const [color, setColor] = useState('')
@@ -62,36 +64,40 @@ export const Kittens = () => {
             {snapshots.length > 0 && snapshots.map((kittenInfo: KittenInfo, index) => {
                 return <Kitten data={kittenInfo} key={index} />
             })}
-            <div className='bg-slate-700 max-w-3xl m-auto'>
-                <div className='w-1/2 m-auto p-5 rounded-xl flex flex-col gap-4 items-start'>
-                    <h2>Add new kittie</h2>
-                    <div>
-                        <label htmlFor="">Name: </label>
-                        <input className='text-black p-1' type="text" value={name} onChange={(e) => setName(e.target.value)} />
+            {user &&
+                <div className='bg-slate-700 max-w-3xl m-auto'>
+                    <div className='w-1/2 m-auto p-5 rounded-xl flex flex-col gap-4 items-start'>
+                        <h2>Add new kitty</h2>
+                        <div>
+                            <label htmlFor="">Name: </label>
+                            <input className='text-black p-1' type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                        </div>
+                        <div>
+                            <label htmlFor="">Gender: </label>
+                            <input className='text-black p-1' type="text" value={gender} onChange={(e) => setGender(e.target.value)} />
+                        </div>
+                        <div>
+                            <label htmlFor="">Color: </label>
+                            <input className='text-black p-1' type="text" value={color} onChange={(e) => setColor(e.target.value)} />
+                        </div>
+                        <div>
+                            <label htmlFor="">Date of birth: </label>
+                            <input className='text-black p-1' type="text" value={dob} onChange={(e) => setDob(e.target.value)} />
+                        </div>
+                        <div>
+                            <label htmlFor="">pic 1:</label>
+                            {/* @ts-ignore */}
+                            <input className='text-black p-1' type="file" name="" id="" onChange={(e) => setPic1(e.target.files[0])} />
+                        </div>
+                        <div>
+                            <label htmlFor="">pic 2:</label>
+                            {/* @ts-ignore */}
+                            <input className='text-black p-1' type="file" name="" id="" onChange={(e) => setPic2(e.target.files[0])} />
+                        </div>
                     </div>
-                    <div>
-                        <label htmlFor="">Gender: </label>
-                        <input className='text-black p-1' type="text" value={gender} onChange={(e) => setGender(e.target.value)} />
-                    </div>
-                    <div>
-                        <label htmlFor="">Color: </label>
-                        <input className='text-black p-1' type="text" value={color} onChange={(e) => setColor(e.target.value)} />
-                    </div>
-                    <div>
-                        <label htmlFor="">Date of birth: </label>
-                        <input className='text-black p-1' type="text" value={dob} onChange={(e) => setDob(e.target.value)} />
-                    </div>
-                    <div>
-                        <label htmlFor="">pic 1:</label>
-                        <input className='text-black p-1' type="file" name="" id="" onChange={(e) => setPic1(e.target.files[0])} />
-                    </div>
-                    <div>
-                        <label htmlFor="">pic 2:</label>
-                        <input className='text-black p-1' type="file" name="" id="" onChange={(e) => setPic2(e.target.files[0])} />
-                    </div>
+                    <button onClick={upload}>Upload</button>
                 </div>
-                <button onClick={upload}>Upload</button>
-            </div>
+            }
         </div>
     )
 }

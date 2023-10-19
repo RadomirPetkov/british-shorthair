@@ -43,7 +43,7 @@ export const AddNewKittensLitter = () => {
                     <label htmlFor='parent1'>Parent 1</label>
                         <Select
                             options={parentsOptions}
-                            onChange={(e) => setParentPic1(e.value)}
+                            onChange={(e) => setParentPic1(e?.value)}
                         />
                     <div>
                         <label htmlFor='parentName2'>Name: </label>
@@ -54,7 +54,7 @@ export const AddNewKittensLitter = () => {
                     <label htmlFor='parentPic2'>Parent 2</label>
                     <Select
                             options={parentsOptions}
-                            onChange={(e) => setParentPic2(e.value)}
+                            onChange={(e) => setParentPic2(e?.value)}
                         />
                     <div>
                         <label htmlFor='parentName2'>Name: </label>

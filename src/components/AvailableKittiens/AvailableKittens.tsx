@@ -11,6 +11,7 @@ export const AvailableKittens = () => {
         const fetchData = async () => {
             const firebaseDocs = await getDocs(collection(db, 'KittensLitter'))
             firebaseDocs.forEach((doc) => {
+                // @ts-ignore
                 setFirebaseDocsData((oldData) => {
                     return [...oldData, doc].sort((a, b) => {
                         if (a.data().available < b.data().available) {
@@ -27,12 +28,9 @@ export const AvailableKittens = () => {
         fetchData()
     }, [])
 
-    const user = useSelector((state: any) => state.user)
-    console.log(user)
-
+    const { user } = useSelector((state: any) => state.user)
     return (
         <div className=''>
-            {/* {user && <AddNewKittensLitter/>} */}
             {firebaseDocsData.map((doc: any) => {
                 const data = doc
                     .data()
@@ -48,7 +46,7 @@ export const AvailableKittens = () => {
                     />
                 )
             })}
-            <AddNewKittensLitter />
+            {user && <AddNewKittensLitter />}
         </div>
     )
 }

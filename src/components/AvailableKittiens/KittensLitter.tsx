@@ -1,11 +1,13 @@
 import { buttonClassName } from '../features/styles'
 import { useNavigate } from 'react-router-dom'
 import { getDownloadURL, listAll, ref } from 'firebase/storage'
-import { storage } from '../../firebase-config'
+import { db, storage } from '../../firebase-config'
 import { useEffect, useState } from 'react'
 import ReactModal from 'react-modal'
 import { Modal } from '../features/Modal'
 import { useTranslation } from 'react-i18next'
+import { deleteDoc, doc } from 'firebase/firestore'
+import { useSelector } from 'react-redux'
 
 type KittensLitterProps = {
     parent1: string,
@@ -16,12 +18,14 @@ type KittensLitterProps = {
     available: boolean
 }
 
-export const KittensLitter = ({ parent1, parent2, parentNames, dob, available, id }: KittensLitterProps) => {
+export const KittensLitter = ({ parent1, parent2, parentNames, available, id }: KittensLitterProps) => {
+    const { user } = useSelector((state: any) => state.user)
     const { t } = useTranslation()
     const navigate = useNavigate()
     const [firstImage, setFirstImage] = useState('')
     const [secondImage, setSecondImage] = useState('')
     const [modalImage, setModalImage] = useState('')
+    const [deleteDialogIsOpen, setDeleteDialogIsOpen] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
     const firstImageListRef = ref(storage, `parents/${parent1}`)
     const secondImageListRef = ref(storage, `parents/${parent2}`)
@@ -49,8 +53,13 @@ export const KittensLitter = ({ parent1, parent2, parentNames, dob, available, i
         setIsOpen(true)
     }
 
+    const deleteKittensLitter = async () => {
+        await deleteDoc(doc(db, 'KittensLitter', id))
+        alert('Successfull update')
+    }
+
     return (
-        <div className=" w-5/6 m-auto p-2 pt-5 bg-gray-300 my-10 rounded-3xl h-auto text-black space-y-5 sm:w-1/2 shadow-lg shadow-black">
+        <div className=" w-5/6 m-auto p-2 pt-5 bg-gray-300 my-10 rounded-3xl h-auto text-black space-y-5 sm:w-1/2 shadow-lg shadow-black relative">
             <h3>{t('parents')}</h3>
             <div className='flex flex-row items-start justify-evenly'>
                 <div className='w-1/2 flex flex-col gap-3 items-center'>
@@ -76,6 +85,16 @@ export const KittensLitter = ({ parent1, parent2, parentNames, dob, available, i
                 closeTimeoutMS={500}
             >
             </ReactModal>
+            {user && <div className='absolute right-2 top-0'>
+                <button className='bg-red-400 rounded-xl p-4' onClick={() => setDeleteDialogIsOpen(!deleteDialogIsOpen)}>X</button>
+                {deleteDialogIsOpen &&
+                    <div className='bg-gray-500 p-2 rounded-xl'>
+                        <p>Are you sure you want to delete?</p>
+                        <button className='m-2' onClick={deleteKittensLitter}>Yes</button>
+                        <button className='m-2' onClick={() => setDeleteDialogIsOpen(!deleteDialogIsOpen)}>No</button>
+                    </div>
+                }
+            </div>}
         </div>
     )
 }

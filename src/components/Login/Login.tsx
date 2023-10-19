@@ -3,12 +3,14 @@ import { useState } from 'react'
 import { auth } from '../../firebase-config'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeUser } from '../../redux/user'
+import { useNavigate } from 'react-router-dom'
 
 export const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const { user } = useSelector((state: any) => state.user)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const login = async () => {
         const user = await signInWithEmailAndPassword(
@@ -18,7 +20,7 @@ export const Login = () => {
         )
         if (user) {
             dispatch(changeUser(user))
-            console.log(user)
+            navigate('/')
         }
     }
     return (

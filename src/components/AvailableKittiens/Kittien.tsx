@@ -7,6 +7,7 @@ import ReactModal from 'react-modal'
 import { Modal } from '../features/Modal'
 import { useTranslation } from 'react-i18next'
 import { deleteDoc, doc } from 'firebase/firestore'
+import { useSelector } from 'react-redux'
 
 type KittenProps = {
     data: {
@@ -21,6 +22,7 @@ type KittenProps = {
 }
 
 export const Kitten = (props: KittenProps) => {
+    const { user } = useSelector((state: any) => state.user)
     const { t } = useTranslation()
     const { data } = props
     const navigate = useNavigate()
@@ -52,7 +54,6 @@ export const Kitten = (props: KittenProps) => {
 
     const deleteKitten = async () => {
         const picRef = ref(storage, `/available/${data.parentsId}/${data.name}/${data.parentsId}-${data.name}-1`)
-        console.log(picRef)
         await deleteObject(picRef)
         await deleteDoc(doc(db, 'AvailableKittens', data.id))
         alert('Successfull update')
@@ -80,13 +81,16 @@ export const Kitten = (props: KittenProps) => {
                 </ReactModal>
 
             </div>
-            <button className='absolute top-5 right-5 bg-red-500 text-white p-3 rounded-full' onClick={() => setDeleteDialogIsOpen(true)}>X</button>
-            {deleteDialogIsOpen &&
-                <div className='absolute top-20 right-10'>
-                    <p>Are you sure you want to delete?</p>
-                    <button className='p-2 bg-slate-400 m-2 rounded-xl' onClick={deleteKitten}>Yes</button>
-                    <button className='p-2 bg-slate-400 m-2 rounded-xl' onClick={() => setDeleteDialogIsOpen(false)}>No</button>
-                </div>}
+            {user &&
+                <>
+                    <button className='absolute top-5 right-5 bg-red-500 text-white p-3 rounded-full' onClick={() => setDeleteDialogIsOpen(true)}>X</button>
+                    && {deleteDialogIsOpen &&
+                        <div className='absolute top-20 right-10'>
+                            <p>Are you sure you want to delete?</p>
+                            <button className='p-2 bg-slate-400 m-2 rounded-xl' onClick={deleteKitten}>Yes</button>
+                            <button className='p-2 bg-slate-400 m-2 rounded-xl' onClick={() => setDeleteDialogIsOpen(false)}>No</button>
+                        </div>}
+                </>}
         </div>
     )
 }

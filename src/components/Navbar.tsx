@@ -1,16 +1,26 @@
 import { Link } from 'react-router-dom'
 import logo from '../pictures/logo-white.png'
 import { useTranslation } from 'react-i18next'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Select from 'react-select'
 import i18next from 'i18next'
+import { signOut } from 'firebase/auth'
+import { auth } from '../firebase-config'
+import { changeUser } from '../redux/user'
 
 export const Navbar = () => {
   const linkClassName = 'hover:bg-baseBackground py-2 px-3 rounded-full'
   const { t } = useTranslation()
+  const { user } = useSelector((state: any) => state.user)
   const { language } = useSelector((state: any) => state.language)
+  const dispatch = useDispatch()
   const changeHandler = (e) => {
     i18next.changeLanguage(e.value)
+  }
+  const logout = async () => {
+    await signOut(auth)
+    // @ts-ignore
+    dispatch(changeUser(undefined))
   }
 
   return (
@@ -48,6 +58,7 @@ export const Navbar = () => {
         <Link to={'/contact'} className={linkClassName}>{t('contacts')}</Link>
       </div>
       <div className='text-black p-0 absolute top-0 right-0 text-xs'>
+        {user && <button className='bg-white m-2 p-2' onClick={logout}>Logout</button>}
         <Select
           onChange={changeHandler}
           defaultValue={{ value: language, label: 'EN' }}
