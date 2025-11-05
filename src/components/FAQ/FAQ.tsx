@@ -1,9 +1,13 @@
 import { useState } from 'react'
 import { Accordion } from './Accordion'
 import { useTranslation } from 'react-i18next'
+import { SEO } from '../features/SEO'
+import { seoData } from '../../config/seoData'
 
 export const FAQ = () => {
-    const { t } = useTranslation()
+    const { i18n, t } = useTranslation()
+    const currentLang = i18n.language as 'en' | 'bg'
+    const seo = seoData.faq[currentLang]
     const [active, setActive] = useState(false)
     const data = [{
         title: t('question-1'),
@@ -26,14 +30,24 @@ export const FAQ = () => {
         text: t('answer-5')
     }
     ]
+
     return (
-        <div className='m-5 rounded-xl text-xl flex flex-col gap-5' onClick={() => setActive(!active)}>
-            <h2 className='text-3xl'>{t('faq')}</h2>
-            {data.map(data => {
-                return <Accordion data={data} key={data.title} />
-            })}
-            <p>***</p>
-            <p className='py-5 border-t-2'>{t('faq-final')}</p>
-        </div>
+        <>
+            <SEO
+                title={seo.title}
+                description={seo.description}
+                keywords={seo.keywords}
+                canonicalUrl="/faq"
+                lang={currentLang}
+            />
+                <div className='m-5 rounded-xl text-xl flex flex-col gap-5' onClick={() => setActive(!active)}>
+                    <h2 className='text-3xl'>{t('faq')}</h2>
+                    {data.map(data => {
+                        return <Accordion data={data} key={data.title} />
+                    })}
+                    <p>***</p>
+                    <p className='py-5 border-t-2'>{t('faq-final')}</p>
+                </div>
+        </>
     )
 }

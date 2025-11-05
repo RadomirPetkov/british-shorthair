@@ -4,9 +4,16 @@ import { KittensLitter } from './KittensLitter'
 import { useSelector } from 'react-redux/es/hooks/useSelector'
 import { useEffect, useState } from 'react'
 import { db } from '../../firebase-config'
+import { SEO } from '../features/SEO'
+import { seoData } from '../../config/seoData'
+import { useTranslation } from 'react-i18next'
 
 export const AvailableKittens = () => {
+    const { i18n } = useTranslation()
+    const currentLang = i18n.language as 'en' | 'bg'
+    const seo = seoData.kittens[currentLang]
     const [firebaseDocsData, setFirebaseDocsData] = useState([])
+
     useEffect(() => {
         const fetchData = async () => {
             const firebaseDocs = await getDocs(collection(db, 'KittensLitter'))
@@ -30,23 +37,32 @@ export const AvailableKittens = () => {
 
     const { user } = useSelector((state: any) => state.user)
     return (
-        <div className=''>
-            {firebaseDocsData.map((doc: any) => {
-                const data = doc
-                    .data()
-                return (
-                    <KittensLitter
-                        key={doc.id}
-                        id={doc.id}
-                        dob={'none'}
-                        parent1={data?.parentPic1}
-                        parent2={data?.parentPic2}
-                        parentNames={[`${data.parentName1}`, `${data.parentName2}`]}
-                        available={data.available}
-                    />
-                )
-            })}
-            {user && <AddNewKittensLitter />}
-        </div>
+        <>
+            <SEO
+                title={seo.title}
+                description={seo.description}
+                keywords={seo.keywords}
+                canonicalUrl="/kittens"
+                lang={currentLang}
+            />
+            <div className=''>
+                {firebaseDocsData.map((doc: any) => {
+                    const data = doc
+                        .data()
+                    return (
+                        <KittensLitter
+                            key={doc.id}
+                            id={doc.id}
+                            dob={'none'}
+                            parent1={data?.parentPic1}
+                            parent2={data?.parentPic2}
+                            parentNames={[`${data.parentName1}`, `${data.parentName2}`]}
+                            available={data.available}
+                        />
+                    )
+                })}
+                {user && <AddNewKittensLitter />}
+            </div>
+        </>
     )
 }
