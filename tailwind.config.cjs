@@ -10,7 +10,7 @@ module.exports = {
         'stud': '#2f2f2f'
       },
       backgroundImage: {
-        'front-image': "url('./pictures/background3.jpeg')"
+        'front-image': "url('./pictures/background4.jpg')"
       },
       backgroundColor: {
         'baseBackground': '#ababae',

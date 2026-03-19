@@ -44,8 +44,8 @@ function App () {
             <Route path='/' element={<Home />} />
             <Route path='/around-the-world' element={<AroundTheWorld />} />
             <Route path='/about-the-breed' element={<AboutTheBreedMain />} />
-            <Route path='/appearance' element={<Appearance />} />
-            <Route path='/personality' element={<Personality />} />
+            <Route path='/appearance' element={<Appearance standalone />} />
+            <Route path='/personality' element={<Personality standalone />} />
             <Route path='/gallery' element={<Gallery />} />
             <Route path='/kittens' element={<AvailableKittens />} />
             <Route path='/studs' element={<Studs />} />
