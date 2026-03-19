@@ -45,7 +45,7 @@ export const Home = () => {
                 >
                 </ReactModal>
                 <div className="">
-                    <section className=" flex-col w-screen h-screen relative bg-front-image  bg-no-repeat bg-fixed bg-cover bg-center">
+                    <section className=" flex-col w-screen h-screen relative bg-front-image  bg-no-repeat bg-cover bg-center">
                         <div className="bg-black w-screen h-full opacity-50 m-0 p-0 flex-col">
                             {/* <h3 className="text-2xl w-1/2 m-auto">“A cat doesn’t care if you are smart or dumb, give him your heart and he will give you his.”</h3>
                         <p className='pt-10'>Abraham Lincoln</p> */}
