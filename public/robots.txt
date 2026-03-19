@@ -8,7 +8,7 @@ Disallow: /login
 Disallow: /gallery/admin
 
 # Sitemap location
-Sitemap: https://british-shorthair-breeding.web.app/sitemap.xml
+Sitemap: https://silverglowbshcats.com/sitemap.xml
 
 # Crawl-delay (optional, only if needed)
 # Crawl-delay: 10

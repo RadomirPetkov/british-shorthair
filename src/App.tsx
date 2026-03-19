@@ -24,6 +24,7 @@ import { auth } from './firebase-config'
 import { useDispatch } from 'react-redux'
 import { changeUser } from './redux/user'
 import { HelmetProvider } from 'react-helmet-async'
+import { LocalBusinessJsonLd } from './components/features/JsonLd'
 
 function App () {
   const disptach = useDispatch()
@@ -34,6 +35,7 @@ function App () {
   })
   return (
     <HelmetProvider>
+      <LocalBusinessJsonLd />
       <div className='relative min-h-screen'>
         <ScrollToTop />
         <Navbar />

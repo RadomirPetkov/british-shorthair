@@ -3,6 +3,7 @@ import { Accordion } from './Accordion'
 import { useTranslation } from 'react-i18next'
 import { SEO } from '../features/SEO'
 import { seoData } from '../../config/seoData'
+import { Helmet } from 'react-helmet-async'
 
 export const FAQ = () => {
     const { i18n, t } = useTranslation()
@@ -31,6 +32,19 @@ export const FAQ = () => {
     }
     ]
 
+    const faqSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: data.map((item) => ({
+            '@type': 'Question',
+            name: item.title,
+            acceptedAnswer: {
+                '@type': 'Answer',
+                text: item.text
+            }
+        }))
+    }
+
     return (
         <>
             <SEO
@@ -40,6 +54,9 @@ export const FAQ = () => {
                 canonicalUrl="/faq"
                 lang={currentLang}
             />
+            <Helmet>
+                <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+            </Helmet>
                 <div className='m-5 rounded-xl text-xl flex flex-col gap-5' onClick={() => setActive(!active)}>
                     <h2 className='text-3xl'>{t('faq')}</h2>
                     {data.map(data => {

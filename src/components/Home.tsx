@@ -57,8 +57,8 @@ export const Home = () => {
                         <p className="p-10 py-5 w-5/6 m-auto">{t('who-we-are-first')}</p>
                         <p className="p-10 py-5 w-5/6 m-auto">{t('who-we-are-second')}</p>
                         <div className='flex flex-col gap-10 my-10 md:flex-row'>
-                            <img src={cert2} alt="" className='w-3/4 m-auto rounded-xl md:w-1/3' onClick={() => setcert2Open(true)!} />
-                            <img src={cert1} alt="" className='w-3/4 m-auto rounded-xl md:w-1/3' onClick={() => setcert1Open(true)!} />
+                            <img src={cert2} alt="SilverGlow cattery official registration certificate" className='w-3/4 m-auto rounded-xl md:w-1/3' onClick={() => setcert2Open(true)!} />
+                            <img src={cert1} alt="SilverGlow cattery pedigree registration certificate" className='w-3/4 m-auto rounded-xl md:w-1/3' onClick={() => setcert1Open(true)!} />
                         </div>
                         <div className='flex flex-col items-center gap-1'>
                             <Link to={'/about-the-breed'} className={buttonClassName} >{t('about-the-breed')}</Link>

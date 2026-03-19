@@ -21,9 +21,9 @@ export const SEO = ({
 }: SEOProps) => {
   const siteName = 'SilverGlow British Shorthair'
   const fullTitle = `${title} | ${siteName}`
-  const siteUrl = 'https://silverglowbshcats.com/'
-  const fullCanonicalUrl = canonicalUrl ? `${siteUrl}${canonicalUrl}` : siteUrl
-  const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`
+  const siteUrl = 'https://silverglowbshcats.com'
+  const fullCanonicalUrl = canonicalUrl ? `${siteUrl}${canonicalUrl.startsWith('/') ? canonicalUrl : '/' + canonicalUrl}` : `${siteUrl}/`
+  const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage.startsWith('/') ? ogImage : '/' + ogImage}`
 
   return (
     <Helmet>

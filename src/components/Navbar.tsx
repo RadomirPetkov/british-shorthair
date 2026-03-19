@@ -27,11 +27,11 @@ export const Navbar = () => {
     <div className="bg-gradient-to-b from-slate-800 via-gray-600 to-gray-500 flex flex-wrap m-0 w-screen">
       <div className='m-auto w-full sm:w-auto md:w-auto'>
         <Link to={'/'}>
-          <img src={logo} alt="" className='h-16 top-10 left-10 hidden sm:block sm:h-10 md:h-16 xl:h-20 xl:top-5' />
+          <img src={logo} alt="SilverGlow British Shorthair cattery logo" className='h-16 top-10 left-10 hidden sm:block sm:h-10 md:h-16 xl:h-20 xl:top-5' />
         </Link>
       </div>
       {/* mobile view */}
-      <img src={logo} alt="" className='w-24 h-16 m-auto pt-5 sm:hidden' />
+      <img src={logo} alt="SilverGlow British Shorthair cattery logo" className='w-24 h-16 m-auto pt-5 sm:hidden' />
       <div className='py-2 w-full space-y-2 px-0 sm:hidden'>
         <div className='flex flex-wrap justify-center items-center pt-2 w-full'>
           <Link to={'/'} className={linkClassName} >{t('home')}</Link>

@@ -16,7 +16,7 @@ export const AboutTheBreedMain = () => {
         title={seo.title}
         description={seo.description}
         keywords={seo.keywords}
-        canonicalUrl='//about-the-breed-url'
+        canonicalUrl='/about-the-breed'
       />
       <div>
         <AboutTheBreedView />
