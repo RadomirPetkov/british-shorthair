@@ -5,18 +5,38 @@ import { SEO } from '../features/SEO'
 import { seoData } from '../../config/seoData'
 import { useTranslation } from 'react-i18next'
 
+const GalleryImage = ({ url }: { url: string }) => {
+    const [loaded, setLoaded] = useState(false)
+
+    return (
+        <div className='relative aspect-square rounded-full overflow-hidden shadow-black shadow-md'>
+            {!loaded && (
+                <div className='absolute inset-0 bg-slate-600 animate-pulse' />
+            )}
+            <img
+                className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+                src={url}
+                alt="SilverGlow British Shorthair cat"
+                loading="lazy"
+                onLoad={() => setLoaded(true)}
+            />
+        </div>
+    )
+}
+
 export const Gallery = () => {
     const { i18n } = useTranslation()
     const currentLang = i18n.language as 'en' | 'bg'
     const seo = seoData.gallery[currentLang]
     const [imageList, setImageList] = useState([])
+    const [loading, setLoading] = useState(true)
     const imageListRef = ref(storage, 'main-gallery/')
+
     useEffect(() => {
         listAll(imageListRef).then((res) => {
-            res.items.forEach((item) => {
-                getDownloadURL(item).then((url) => {
-                    setImageList((prev): any => [...prev, url])
-                })
+            Promise.all(res.items.map((item) => getDownloadURL(item))).then((urls) => {
+                setImageList(urls as any)
+                setLoading(false)
             })
         })
     }, [])
@@ -30,14 +50,15 @@ export const Gallery = () => {
                 canonicalUrl="/gallery"
                 lang={currentLang}
             />
-            <div className='grid grid-cols-3 grid-flow-row gap-5 justify-center w-3/4 m-auto'>
-                {imageList.map((url) => {
-                    return (
-                        <div key={url} className='relative'>
-                            <img className='h-24 sm:h-96 sm:w-96 rounded-full shadow-black shadow-md' src={url} alt="" key={url} />
-                        </div>
-                    )
-                })}
+            <div className='grid grid-cols-3 grid-flow-row gap-5 justify-center w-3/4 m-auto py-5'>
+                {loading
+                    ? Array.from({ length: 9 }).map((_, i) => (
+                        <div key={i} className='aspect-square rounded-full bg-slate-600 animate-pulse' />
+                    ))
+                    : imageList.map((url) => (
+                        <GalleryImage key={url} url={url} />
+                    ))
+                }
             </div>
         </>
     )
