@@ -40,7 +40,7 @@ export const Contact = () => {
                     {/* FORM */}
                     <div className="bg-gray-400 w-5/6 m-auto p-10 pt-5 my-10 rounded-xl md:w-1/3">
                         <form className="flex flex-col gap-3">
-                            <h3 className="m-0 p-0 text-3xl">{t('contact-us')}</h3>
+                            <h1 className="m-0 p-0 text-3xl">{t('contact-us')}</h1>
                             <div className="flex flex-col gap-2">
                                 <label htmlFor="name" className='text-xl'>{t('form-name')}</label>
                                 <input type="text" id="name" className="rounded-xl text-black p-1 pl-3" required value={name} onChange={(e) => setName(e.target.value)} />

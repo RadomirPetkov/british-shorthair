@@ -63,11 +63,11 @@ export const KittensLitter = ({ parent1, parent2, parentNames, available, id }: 
             <h3>{t('parents')}</h3>
             <div className='flex flex-row items-start justify-evenly'>
                 <div className='w-1/2 flex flex-col gap-3 items-center'>
-                    <img src={firstImage} alt="" className='w-28 h-28 rounded-full' onClick={handleClick} />
+                    <img src={firstImage} alt={`${parentNames[0]} - SilverGlow British Shorthair stud`} className='w-28 h-28 rounded-full' onClick={handleClick} />
                     <p>{t('sir')}: {parentNames[0]}</p>
                 </div>
                 <div className='w-1/2 flex flex-col gap-3 items-center'>
-                    <img src={secondImage} alt="" className='w-28 h-28 rounded-full' onClick={handleClick} />
+                    <img src={secondImage} alt={`${parentNames[1]} - SilverGlow British Shorthair queen`} className='w-28 h-28 rounded-full' onClick={handleClick} />
                     <p>{t('dam')}: {parentNames[1]}</p>
                 </div>
 

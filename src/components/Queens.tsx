@@ -18,6 +18,7 @@ export const Queens = () => {
                 lang={currentLang}
             />
                 <div className='h-full bg-stud m-0 -mb-16 pb-8'>
+                    <h1 className='sr-only'>Our Queens - SilverGlow British Shorthair Breeding Females</h1>
                     <CatGallery fullName='SilverGlow Ice Ice Baby' petName='Icie' firebaseUrl='/queens/Icie' sir='Ugo Polaris' dam='IGrCH Kamasaki Moonshadow' />
                     <CatGallery fullName='CH SilverGlow Little Moonshadow' petName='Ainie' firebaseUrl='/queens/Ainie' sir='IGrCH Jeraz Little Snowbear' dam='IGrCH Kamasaki Moonshadow' />
                     <CatGallery fullName='CH SilverGlow Hubba Bubba' petName='Bubie' firebaseUrl='/queens/Bubie' sir='CH Richard Von Burg Weissensee' dam='SilverGlow Ice Ice Baby' />

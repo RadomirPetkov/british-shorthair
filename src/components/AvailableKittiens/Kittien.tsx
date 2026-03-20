@@ -68,8 +68,8 @@ export const Kitten = (props: KittenProps) => {
                 <h3 className=''>{t('dob')}: {data.dob}</h3>
                 <h3 className=''><button className={buttonClassName.concat('text-green-400')} onClick={handleClick}>{t('available')}</button></h3>
                 <div className='flex flex-col w-full h-auto gap-5 justify-center md:flex-row'>
-                    <img src={imageList[0]} alt='' className='h-auto max-h-96 w-3/4 m-auto rounded-xl shadow-black shadow-md md:w-1/3 md:m-0' onClick={handleImgClick} />
-                    {imageList[1] && <img src={imageList[1]} alt='' className='h-auto w-3/4 max-h-96 m-auto rounded-xl shadow-black shadow-md md:w-1/3 md:m-0' onClick={handleImgClick} />}
+                    <img src={imageList[0]} alt={`${data.name} - ${data.color} British Shorthair kitten`} className='h-auto max-h-96 w-3/4 m-auto rounded-xl shadow-black shadow-md md:w-1/3 md:m-0' onClick={handleImgClick} />
+                    {imageList[1] && <img src={imageList[1]} alt={`${data.name} - ${data.color} British Shorthair kitten photo 2`} className='h-auto w-3/4 max-h-96 m-auto rounded-xl shadow-black shadow-md md:w-1/3 md:m-0' onClick={handleImgClick} />}
                 </div>
                 <ReactModal
                     isOpen={isOpen}

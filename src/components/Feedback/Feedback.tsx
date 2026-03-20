@@ -32,6 +32,7 @@ export const Feedback = () => {
                 lang={currentLang}
             />
                 <div className='overflow-hidden w-screen m-0'>
+                    <h1 className='sr-only'>Customer Reviews - SilverGlow British Shorthair</h1>
                     <div className='w-screen'>
                     </div>
                     <button className='bg-gray-100 text-black p-3 mt-10 rounded-xl'>

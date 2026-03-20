@@ -51,8 +51,13 @@ export const SEO = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={fullOgImage} />
 
+      {/* Hreflang - bilingual site (same URL for both languages) */}
+      <link rel="alternate" hrefLang="x-default" href={fullCanonicalUrl} />
+      <link rel="alternate" hrefLang="en" href={fullCanonicalUrl} />
+      <link rel="alternate" hrefLang="bg" href={fullCanonicalUrl} />
+
       {/* Additional SEO tags */}
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
       <meta name="language" content={lang === 'en' ? 'English' : 'Bulgarian'} />
       <meta name="author" content="SilverGlow British Shorthair" />
     </Helmet>

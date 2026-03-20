@@ -50,6 +50,7 @@ export const Gallery = () => {
                 canonicalUrl="/gallery"
                 lang={currentLang}
             />
+            <h1 className='sr-only'>SilverGlow British Shorthair Photo Gallery</h1>
             <div className='grid grid-cols-3 grid-flow-row gap-5 justify-center w-3/4 m-auto py-5'>
                 {loading
                     ? Array.from({ length: 9 }).map((_, i) => (

@@ -18,6 +18,7 @@ export const Studs = () => {
                 lang={currentLang}
             />
             <div className='bg-stud m-0 pb-8 -mb-16 h-full'>
+                <h1 className='sr-only'>Our Studs - SilverGlow British Shorthair Breeding Males</h1>
                 <CatGallery fullName='Aspen SilverGlow' firebaseUrl='/studs/Aspen' sir='GICH Viva Vogue Ultramarine ' dam='Nicomedia Candy' />
                 <CatGallery fullName='CH SilverGlow Ferrero Raffaello' firebaseUrl='/studs/Raffaello' sir='CH Marozka Peridot' dam='IGrCH Kamasaki Moonshadow ' />
             </div>

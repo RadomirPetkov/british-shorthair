@@ -22,6 +22,26 @@
     <xhtml:link rel="alternate" hreflang="bg" href="https://silverglowbshcats.com/about-the-breed" />
   </url>
 
+  <!-- Appearance -->
+  <url>
+    <loc>https://silverglowbshcats.com/appearance</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silverglowbshcats.com/appearance" />
+    <xhtml:link rel="alternate" hreflang="bg" href="https://silverglowbshcats.com/appearance" />
+  </url>
+
+  <!-- Personality -->
+  <url>
+    <loc>https://silverglowbshcats.com/personality</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silverglowbshcats.com/personality" />
+    <xhtml:link rel="alternate" hreflang="bg" href="https://silverglowbshcats.com/personality" />
+  </url>
+
   <!-- Gallery -->
   <url>
     <loc>https://silverglowbshcats.com/gallery</loc>
