@@ -25,12 +25,7 @@ export const LocalBusinessJsonLd = () => {
     '@type': 'WebSite',
     name: 'SilverGlow British Shorthair',
     url: 'https://silverglowbshcats.com',
-    inLanguage: ['en', 'bg'],
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: 'https://silverglowbshcats.com/?q={search_term_string}',
-      'query-input': 'required name=search_term_string'
-    }
+    inLanguage: ['en', 'bg']
   }
 
   const schema = {

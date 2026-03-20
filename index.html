@@ -7,16 +7,29 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#ababae" />
+  <!-- Preload hero image for LCP improvement -->
+  <link rel="preload" as="image" href="/src/pictures/background4.jpg" />
   <meta name="description" content="Reputable cattery of British Shorthair and Longhair Silver and Gold cats and kittens, raised at home and well socialist, leaving us to go to their new owners anywhere around the world - registered, with a pedigree, fully vaccinated ... ">
   <title>SilverGlow British Shorthair</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Raleway&family=Ysabeau+Infant&display=swap" />
+  <!-- Non-render-blocking font load -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Raleway&family=Ysabeau+Infant&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Raleway&family=Ysabeau+Infant&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Raleway&family=Ysabeau+Infant&display=swap" /></noscript>
 
 </head>
 
 <body>
   <div id="root"></div>
+  <noscript>
+    <div style="font-family:sans-serif;max-width:800px;margin:40px auto;padding:20px">
+      <h1>SilverGlow British Shorthair Cattery</h1>
+      <p>Reputable British Shorthair and Longhair cattery specializing in Silver and Gold cats. Located in Tryavna, Bulgaria. Kittens raised at home, well-socialized, registered with pedigrees, and fully vaccinated. Worldwide shipping available.</p>
+      <p>Please enable JavaScript to use the full website.</p>
+      <p>Contact: <a href="mailto:silverglowcats@outlook.com">silverglowcats@outlook.com</a> | +359887022592</p>
+    </div>
+  </noscript>
   <script type="module" src="/src/main.tsx"></script>
 </body>
 

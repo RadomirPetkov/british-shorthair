@@ -41,6 +41,9 @@ export const SEO = ({
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={fullOgImage} />
+      <meta property="og:image:width" content="512" />
+      <meta property="og:image:height" content="512" />
+      <meta property="og:image:alt" content={`${siteName} logo`} />
       <meta property="og:site_name" content={siteName} />
       <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'bg_BG'} />
 

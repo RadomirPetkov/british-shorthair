@@ -1,30 +1,32 @@
 import { Route, Routes } from 'react-router-dom'
+import { lazy, Suspense } from 'react'
 import './App.css'
 import { Navbar } from './components/Navbar'
-import { Home } from './components/Home'
-import { Gallery } from './components/Gallery/Gallery'
-import { GalleryAdmin } from './components/Gallery/GalleryAdmin'
-import { AroundTheWorld } from './components/AroundTheWorld'
-import { AvailableKittens } from './components/AvailableKittiens/AvailableKittens'
-import { Studs } from './components/Studs'
-import { Queens } from './components/Queens'
-import { Feedback } from './components/Feedback/Feedback'
-import { LeaveAComment } from './components/Feedback/LeaveAComment'
-import { AboutTheBreedMain } from './components/AboutTheBreed/AboutTheBreedMain'
-import { Appearance } from './components/AboutTheBreed/Appearance'
-import { Personality } from './components/AboutTheBreed/Personality'
 import { ScrollToTop } from './components/features/ScrollToTop'
-import { Contact } from './components/Contact'
-import { Kittens } from './components/AvailableKittiens/Kittens'
-import { FAQ } from './components/FAQ/FAQ'
 import { Footer } from './components/Footer'
-import { Login } from './components/Login/Login'
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from './firebase-config'
 import { useDispatch } from 'react-redux'
 import { changeUser } from './redux/user'
 import { HelmetProvider } from 'react-helmet-async'
 import { LocalBusinessJsonLd } from './components/features/JsonLd'
+
+const Home = lazy(() => import('./components/Home').then(m => ({ default: m.Home })))
+const Gallery = lazy(() => import('./components/Gallery/Gallery').then(m => ({ default: m.Gallery })))
+const GalleryAdmin = lazy(() => import('./components/Gallery/GalleryAdmin').then(m => ({ default: m.GalleryAdmin })))
+const AroundTheWorld = lazy(() => import('./components/AroundTheWorld').then(m => ({ default: m.AroundTheWorld })))
+const AvailableKittens = lazy(() => import('./components/AvailableKittiens/AvailableKittens').then(m => ({ default: m.AvailableKittens })))
+const Studs = lazy(() => import('./components/Studs').then(m => ({ default: m.Studs })))
+const Queens = lazy(() => import('./components/Queens').then(m => ({ default: m.Queens })))
+const Feedback = lazy(() => import('./components/Feedback/Feedback').then(m => ({ default: m.Feedback })))
+const LeaveAComment = lazy(() => import('./components/Feedback/LeaveAComment').then(m => ({ default: m.LeaveAComment })))
+const AboutTheBreedMain = lazy(() => import('./components/AboutTheBreed/AboutTheBreedMain').then(m => ({ default: m.AboutTheBreedMain })))
+const Appearance = lazy(() => import('./components/AboutTheBreed/Appearance').then(m => ({ default: m.Appearance })))
+const Personality = lazy(() => import('./components/AboutTheBreed/Personality').then(m => ({ default: m.Personality })))
+const Contact = lazy(() => import('./components/Contact').then(m => ({ default: m.Contact })))
+const Kittens = lazy(() => import('./components/AvailableKittiens/Kittens').then(m => ({ default: m.Kittens })))
+const FAQ = lazy(() => import('./components/FAQ/FAQ').then(m => ({ default: m.FAQ })))
+const Login = lazy(() => import('./components/Login/Login').then(m => ({ default: m.Login })))
 
 function App () {
   const disptach = useDispatch()
@@ -40,6 +42,7 @@ function App () {
         <ScrollToTop />
         <Navbar />
         <div className='pb-14'>
+          <Suspense fallback={<div className="flex items-center justify-center h-64"><span className="loading loading-spinner loading-lg"></span></div>}>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/around-the-world' element={<AroundTheWorld />} />
@@ -58,6 +61,7 @@ function App () {
             <Route path='/gallery/admin' element={<GalleryAdmin />} />
             <Route path='/kittens/:id' element={<Kittens />} />
           </Routes>
+          </Suspense>
         </div>
         <Footer />
       </div>
