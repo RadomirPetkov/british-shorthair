@@ -53,11 +53,12 @@ export const Kitten = (props: KittenProps) => {
     }
 
     const deleteKitten = async () => {
-        const picRef = ref(storage, `/available/${data.parentsId}/${data.name}/${data.parentsId}-${data.name}-1`)
-        await deleteObject(picRef)
+        const folderRef = ref(storage, `available/${data.parentsId}/${data.name}`)
+        const files = await listAll(folderRef)
+        await Promise.all(files.items.map((fileRef) => deleteObject(fileRef)))
         await deleteDoc(doc(db, 'AvailableKittens', data.id))
         alert('Successfull update')
-        setImageList([...imageList])
+        setImageList([])
     }
     return (
         <div className='relative'>
