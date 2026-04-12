@@ -20,14 +20,9 @@ export const CatGallery = (props: Props) => {
     const imageListRef = ref(storage, `${firebaseUrl}`)
     useEffect(() => {
         listAll(imageListRef).then((res) => {
-            getDownloadURL(res.items[0]).then((resp) => {
-                setMainImage(resp)
-            }
-            )
-            res.items.forEach((item) => {
-                getDownloadURL(item).then((url) => {
-                    setImageList((prev): any => [...prev, url])
-                })
+            Promise.all(res.items.map((item) => getDownloadURL(item))).then((urls) => {
+                setImageList(urls as any)
+                setMainImage(urls[0])
             })
         })
     }, [])
@@ -42,12 +37,15 @@ export const CatGallery = (props: Props) => {
             {petName && <h3 className="">{t('pet-name-queens')}: {petName}</h3>}
             <h3 className="">{t('dam')}: {dam}</h3>
             <h3 className="">{t('sir')}: {sir}</h3>
-            <img src={mainImage} alt={`${fullName} - SilverGlow British Shorthair`} className='h-1/2 m-auto max-h-96 rounded-xl shadow-black shadow-md' />
-            <div className=' w-full inline-flex items-center'>
-                <img src={imageList[0]} alt={`${fullName} photo 1`} className='h-1/2 w-1/6 m-auto rounded-full pointer-events-auto cursor-pointer shadow-black shadow-md' onClick={(e) => { handleClick(e) }} />
-                <img src={imageList[1]} alt={`${fullName} photo 2`} className='h-1/2 w-1/6 m-auto rounded-full pointer-events-auto cursor-pointer shadow-black shadow-md' onClick={(e) => { handleClick(e) }} />
-                <img src={imageList[2]} alt={`${fullName} photo 3`} className='h-1/2 w-1/6 m-auto rounded-full pointer-events-auto cursor-pointer shadow-black shadow-md' onClick={(e) => { handleClick(e) }} />
-                <img src={imageList[3]} alt={`${fullName} photo 4`} className='h-1/2 w-1/6 m-auto rounded-full pointer-events-auto cursor-pointer shadow-black shadow-md' onClick={(e) => { handleClick(e) }} />
+            <div className='min-h-16 m-auto w-full rounded-xl'>
+                {mainImage && <img src={mainImage} alt={`${fullName} - SilverGlow British Shorthair`} className='h-auto max-h-96 w-auto m-auto rounded-xl shadow-black shadow-md' loading="lazy" />}
+            </div>
+            <div className='w-full inline-flex items-center'>
+                {[0, 1, 2, 3].map((i) => (
+                    <div key={i} className='w-1/6 m-auto'>
+                        {imageList[i] && <img src={imageList[i]} alt={`${fullName} photo ${i + 1}`} className='h-auto w-full rounded-full cursor-pointer shadow-black shadow-md' loading="lazy" onClick={(e) => { handleClick(e) }} />}
+                    </div>
+                ))}
             </div>
             <div className='absolute top-40 -left-96'>
                 <FaPaw size={75} />

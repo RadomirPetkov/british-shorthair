@@ -31,9 +31,7 @@ const Login = lazy(() => import('./components/Login/Login').then(m => ({ default
 function App () {
   const disptach = useDispatch()
   onAuthStateChanged(auth, (currentUser: any) => {
-    if (currentUser) {
-      disptach(changeUser(currentUser))
-    }
+    disptach(changeUser(currentUser ? { uid: currentUser.uid, email: currentUser.email } : undefined))
   })
   return (
     <HelmetProvider>

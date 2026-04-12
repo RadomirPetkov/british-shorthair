@@ -31,11 +31,15 @@ export const Kittens = () => {
     const q = query(feedbackRef, where('parentsId', '==', id))
 
     useEffect(() => {
+        let cancelled = false
         const getData = async () => {
             const data: any = await getDocs(q)
-            setSnapshots(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+            if (!cancelled) {
+                setSnapshots(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+            }
         }
         getData()
+        return () => { cancelled = true }
     }, [])
 
     const upload = async () => {
