@@ -25,6 +25,7 @@ export const Kittens = () => {
     const [pic2, setPic2] = useState<File | null>(null)
     const { id } = useParams()
     const [snapshots, setSnapshots] = useState([])
+    const [loading, setLoading] = useState(true)
     const storageRef1 = ref(storage, `/available/${id}/${name}/${id}-${name}-1`)
     const storageRef2 = ref(storage, `/available/${id}/${name}/${id}-${name}-2`)
     const feedbackRef = collection(db, 'AvailableKittens')
@@ -36,6 +37,7 @@ export const Kittens = () => {
             const data: any = await getDocs(q)
             if (!cancelled) {
                 setSnapshots(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+                setLoading(false)
             }
         }
         getData()
@@ -64,13 +66,25 @@ export const Kittens = () => {
         }
     }
     return (
-        <div>
-            {snapshots.length > 0 && snapshots.map((kittenInfo: KittenInfo, index) => {
-                return <Kitten data={kittenInfo} key={index} />
-            })}
-            {user &&
-                <div className='bg-slate-700 max-w-3xl m-auto'>
-                    <div className='w-1/2 m-auto p-5 rounded-xl flex flex-col gap-4 items-start'>
+        <div className="flex-1 bg-stud py-12 px-4">
+            {loading && (
+                <div className="flex justify-center items-center h-48">
+                    <div className="w-8 h-8 border-2 border-white/20 border-t-white/70 rounded-full animate-spin" />
+                </div>
+            )}
+            {!loading && snapshots.length === 0 && (
+                <p className="text-center text-white/40 text-sm tracking-widest uppercase mt-20">No kittens available now</p>
+            )}
+            {!loading && snapshots.length > 0 && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                    {snapshots.map((kittenInfo: KittenInfo, index) => (
+                        <Kitten data={kittenInfo} key={index} />
+                    ))}
+                </div>
+            )}
+            {!loading && user &&
+                <div className='bg-white/5 border border-white/10 rounded-2xl max-w-xl m-auto mt-10 text-white'>
+                    <div className='w-full p-6 flex flex-col gap-4 items-start'>
                         <h2>Add new kitty</h2>
                         <div>
                             <label htmlFor="">Name: </label>
