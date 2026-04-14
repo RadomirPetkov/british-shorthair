@@ -103,7 +103,7 @@ export const KittensLitter = ({ parent1, parent2, parentNames, available, id }: 
                     {/* Father */}
                     <div className="flex flex-col items-center gap-2">
                         <div
-                            className="w-40 h-40 rounded-full overflow-hidden border-2 border-white/20 shadow-lg cursor-pointer hover:border-white/50 transition-all duration-300"
+                            className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-2 border-white/20 shadow-lg cursor-pointer hover:border-white/50 transition-all duration-300"
                             onClick={() => { if (firstImage) { setModalImage(firstImage); setIsOpen(true) } }}
                         >
                             {firstImage
@@ -112,13 +112,13 @@ export const KittensLitter = ({ parent1, parent2, parentNames, available, id }: 
                             }
                         </div>
                         <p className="text-white/40 text-[10px] uppercase tracking-widest">{t('sir')}</p>
-                        <p className="text-white/80 text-xs font-medium text-center max-w-[150px] leading-snug">{parentNames[0]}</p>
+                        <p className="text-white/80 text-xs font-medium text-center max-w-[120px] sm:max-w-[150px] leading-snug">{parentNames[0]}</p>
                     </div>
 
                     {/* Mother */}
                     <div className="flex flex-col items-center gap-2">
                         <div
-                            className="w-40 h-40 rounded-full overflow-hidden border-2 border-white/20 shadow-lg cursor-pointer hover:border-white/50 transition-all duration-300"
+                            className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-2 border-white/20 shadow-lg cursor-pointer hover:border-white/50 transition-all duration-300"
                             onClick={() => { if (secondImage) { setModalImage(secondImage); setIsOpen(true) } }}
                         >
                             {secondImage
@@ -127,7 +127,7 @@ export const KittensLitter = ({ parent1, parent2, parentNames, available, id }: 
                             }
                         </div>
                         <p className="text-white/40 text-[10px] uppercase tracking-widest">{t('dam')}</p>
-                        <p className="text-white/80 text-xs font-medium text-center max-w-[150px] leading-snug">{parentNames[1]}</p>
+                        <p className="text-white/80 text-xs font-medium text-center max-w-[120px] sm:max-w-[150px] leading-snug">{parentNames[1]}</p>
                     </div>
                 </div>
 

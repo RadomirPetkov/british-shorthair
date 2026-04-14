@@ -39,11 +39,18 @@ export const LocalBusinessJsonLd = () => {
     image: 'https://silverglowbshcats.com/logo-dark.png',
     telephone: '+359887022592',
     email: 'silverglowcats@outlook.com',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Tryavna',
-      addressCountry: 'BG'
-    },
+    address: [
+      {
+        '@type': 'PostalAddress',
+        addressLocality: 'Stara Zagora',
+        addressCountry: 'BG'
+      },
+      {
+        '@type': 'PostalAddress',
+        addressLocality: 'Coventry',
+        addressCountry: 'GB'
+      }
+    ],
     sameAs: [
       'https://www.facebook.com/SilverglowBritishShorthair',
       'https://www.instagram.com/silverglow.bsh',

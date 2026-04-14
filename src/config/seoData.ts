@@ -125,13 +125,13 @@ export const seoData: Record<string, PageSEO> = {
   contact: {
     en: {
       title: 'Contact Us - Get in Touch',
-      description: 'Contact SilverGlow British Shorthair cattery to inquire about available kittens, breeding program, or any questions. We are located in Tryavna, Bulgaria and ship worldwide.',
-      keywords: 'contact British Shorthair cattery, contact breeder, British Shorthair Bulgaria, Tryavna cattery, cat breeder contact, kitten inquiry'
+      description: 'Contact SilverGlow British Shorthair cattery to inquire about available kittens, breeding program, or any questions. We are located in Stara Zagora, Bulgaria & Coventry, UK and ship worldwide.',
+      keywords: 'contact British Shorthair cattery, contact breeder, British Shorthair Bulgaria, Stara Zagora cattery, Coventry cattery, cat breeder contact, kitten inquiry'
     },
     bg: {
       title: 'Контакти - Свържете се с Нас',
-      description: 'Свържете се с развъдник SilverGlow за информация относно налични котенца, програма за развъждане или други въпроси. Намираме се в Трявна, България и изпращаме по целия свят.',
-      keywords: 'контакт британски котки, контакт развъдник, британски котки България, Трявна развъдник, контакт с развъдник, запитване за котенца'
+      description: 'Свържете се с развъдник SilverGlow за информация относно налични котенца, програма за развъждане или други въпроси. Намираме се в Стара Загора, България и Ковентри, Великобритания и изпращаме по целия свят.',
+      keywords: 'контакт британски котки, контакт развъдник, британски котки България, Стара Загора развъдник, Ковентри развъдник, контакт с развъдник, запитване за котенца'
     }
   },
   faq: {
