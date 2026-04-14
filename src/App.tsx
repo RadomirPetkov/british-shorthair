@@ -36,10 +36,10 @@ function App () {
   return (
     <HelmetProvider>
       <LocalBusinessJsonLd />
-      <div className='relative min-h-screen'>
+      <div className='flex flex-col min-h-screen'>
         <ScrollToTop />
         <Navbar />
-        <div className='pb-14'>
+        <main className='flex-1 flex flex-col'>
           <Suspense fallback={<div className="flex items-center justify-center h-64"><span className="loading loading-spinner loading-lg"></span></div>}>
           <Routes>
             <Route path='/' element={<Home />} />
@@ -60,7 +60,7 @@ function App () {
             <Route path='/kittens/:id' element={<Kittens />} />
           </Routes>
           </Suspense>
-        </div>
+        </main>
         <Footer />
       </div>
     </HelmetProvider>
